@@ -1,13 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sed.cpp                                            :+:      :+:    :+:   */
+/*   Sed_is_for_losers.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nobmk <nobmk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kmb <kmb@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 01:55:36 by nobmk             #+#    #+#             */
-/*   Updated: 2024/05/16 01:57:23 by nobmk            ###   ########.fr       */
+/*   Created: 2024/03/25 03:07:19 by kmb               #+#    #+#             */
+/*   Updated: 2024/03/25 03:17:12 by kmb              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Sed.hpp"
+#ifndef SED_IS_FOR_LOSERS_HPP
+# define SED_IS_FOR_LOSERS_HPP
+
+# include <iostream>
+# include <string>
+# include <fstream>
+# include <sstream>
+
+#endif
