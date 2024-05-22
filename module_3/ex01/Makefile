@@ -1,19 +1,18 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
-NAME = ClapTrap
-SRCS = src/main.cpp src/ClapTrap.cpp
-OBJS = $(SRCS:.cpp=.o)
-INC = ClapTrap.hpp
+NAME = ScavTrap
+SRCS = src/main.cpp src/ClapTrap.cpp src/ScavTrap.cpp 
+INC = includes/ClapTrap.hpp includes/ScavTrap.hpp
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 %.o: %.cpp $(INC)
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(NAME)
 
 fclean: clean
 

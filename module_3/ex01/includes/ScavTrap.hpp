@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nobmk <nobmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 07:59:04 by nobmk             #+#    #+#             */
-/*   Updated: 2024/05/22 22:43:26 by nobmk            ###   ########.fr       */
+/*   Created: 2024/05/22 01:56:48 by nobmk             #+#    #+#             */
+/*   Updated: 2024/05/22 22:18:46 by nobmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
-#include "../includes/ScavTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main(void)
+# include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-    ScavTrap scavtrap( "manuel" );
-    ScavTrap scavtrap2( scavtrap );
-    
-    std::cout << "ScavTrap test" << std::endl;
+    private:
+        ScavTrap();
+    public:
+        ScavTrap( std::string name );
+        ~ScavTrap();
+        void guardGate();
+        void attack(const std::string& target);
+};
 
-    // ScavTrap test
-    scavtrap.attack("target");
-    scavtrap.attack("target");
-    scavtrap.takeDamage(5);
-    scavtrap.beRepaired(5);
-    scavtrap.guardGate();
-    
-
-    
-
-
-    return 0;
-}
+#endif
