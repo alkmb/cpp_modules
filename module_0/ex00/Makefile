@@ -1,38 +1,26 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: kmb <kmb@student.42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/28 16:10:26 by kmb               #+#    #+#              #
-#    Updated: 2024/02/28 20:05:24 by kmb              ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-CC = g++
-CFLAGS = -Wall -Wextra -Werror -g
+CC = clang++
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -rf
 
 SRCS = $(wildcard *.cpp)
+OBJS = $(SRCS:.cpp=.o)
 NAME = Megaphone
 
 all: $(NAME)
 
-$(NAME): $(OBJS) Makefile
-	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME) > /dev/null
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "✅✅$(NAME) is ready!✅✅"
 
-obj/%.o: src/%.cpp
-	@mkdir -p obj
-	@$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 fclean: clean
-	@$(RM) $(NAME) > /dev/null
+	$(RM) $(NAME)
 	@echo "✅ Done cleaning up executables!"
 
 clean:
-	@$(RM) obj > /dev/null
+	$(RM) $(OBJS)
 	@echo "✅ Done cleaning up!"
 
 re: fclean all
