@@ -14,21 +14,21 @@ NAME = Moar-Brainz!
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = includes/Zombie.hpp
-SRC = src/Zombie.cpp src/zombieHorde.cpp src/main.cpp
+SRCS = src/Zombie.cpp src/zombieHorde.cpp src/main.cpp
 RM = rm -rf
 
-all: 
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-	echo "Compilation done!"
+all: $(NAME)
+
+$(NAME): $(SRCS) $(HEADER) Makefile
+	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME) > /dev/null
+	@echo "✅✅$(NAME) is ready!✅✅"
+
+fclean: clean
+	@$(RM) $(NAME) > /dev/null
+	@echo "✅ Done cleaning up executables!"
 
 clean:
-	rm -rf $(NAME)
-	echo "Clean done!"
-
-fclean: 
-	$(RM) $(NAME)
-	echo "Fclean done!"
+	@$(RM) obj > /dev/null
+	@echo "✅ Done cleaning up!"
 
 re: fclean all
-
-.PHONY: all clean fclean re

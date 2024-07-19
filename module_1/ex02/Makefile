@@ -16,14 +16,18 @@ CFLAGS= -Wall -Wextra -Werror
 RM = rm-rf
 SRC= main.cpp
 
-all:
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-	echo "Compilation done!"
+all: $(NAME)
 
-clean:
-	$(RM) $(NAME)
-	echo "Clean done!"
+$(NAME): $(SRCS) $(HEADER) Makefile
+	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME) > /dev/null
+	@echo "✅✅$(NAME) is ready!✅✅"
 
 fclean: clean
+	@$(RM) $(NAME) > /dev/null
+	@echo "✅ Done cleaning up executables!"
+
+clean:
+	@$(RM) obj > /dev/null
+	@echo "✅ Done cleaning up!"
 
 re: fclean all
