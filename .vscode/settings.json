@@ -133,6 +133,16 @@
     "cinttypes": "cpp",
     "typeinfo": "cpp",
     "valarray": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "print": "cpp",
+    "__bit_reference": "cpp",
+    "__locale": "cpp",
+    "__threading_support": "cpp",
+    "__verbose_abort": "cpp",
+    "execution": "cpp",
+    "ios": "cpp",
+    "locale": "cpp",
+    "queue": "cpp",
+    "stack": "cpp"
   }
 }

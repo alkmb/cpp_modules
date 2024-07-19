@@ -1,23 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kmb <kmb@student.42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 16:06:58 by kmb               #+#    #+#             */
-/*   Updated: 2024/02/28 16:33:29 by kmb              ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/Zombie.hpp"
 
-void	Zombie_main(void)
+Zombie::Zombie( std::string name)
 {
-	Zombie zombie;
-	Zombie *zombie2;
+	this->_name = name;
+}
 
-	randomChump("Zombie1");
-	zombie2 = newZombie("Zombie2");
-	zombie2->announce();
+Zombie::~Zombie()
+{
+	std::cout << "Zombie " << this->_name << " destroyed" << std::endl;	
+}
+
+void Zombie::announce()
+{
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

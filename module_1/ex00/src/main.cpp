@@ -1,19 +1,23 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kmb <kmb@student.42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 16:06:55 by kmb               #+#    #+#             */
-/*   Updated: 2024/02/28 16:33:35 by kmb              ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/Zombie.hpp"
 
-int main(void)
-{
-	Zombie_main();
-	return 0;
+int main( void ) {
+    std::string name;
+
+    std::cout << "zombie on the stack." << std::endl;
+    std::cout << "name: ";
+    std::cin >> name;
+
+    Zombie zombi1(name);
+    
+    std::cout << "zombie on the heap." << std::endl;
+    std::cout << "name: ";
+    std::cin >> name;
+
+    Zombie *zombi2 = newZombie(name);
+    zombi2->announce();
+    delete zombi2;
+
+    std::cout << "Calling randomChump()." << std::endl;
+    randomChump("randi");
+    return 0;
 }

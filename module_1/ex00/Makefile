@@ -14,20 +14,16 @@ CC = g++
 CFLAGS = -Wall -Wextra -Werror -I includes -g
 RM = rm -rf
 
-SRCS = $(wildcard src/*.cpp)
-OBJS = $(patsubst src/%.cpp,obj/%.o,$(SRCS))
+SRCS = src/main.cpp src/Zombie.cpp src/newZombie.cpp \
+src/randomChump.cpp
 NAME = BraiiiiiiinnnzzzZ
-HEADER = includes/*.hpp
+HEADER = includes/Zombie.hpp
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADER) Makefile
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) > /dev/null
+$(NAME): $(SRCS) $(HEADER) Makefile
+	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME) > /dev/null
 	@echo "✅✅$(NAME) is ready!✅✅"
-
-obj/%.o: src/%.cpp
-	@mkdir -p obj
-	@$(CC) $(CFLAGS) -c $< -o $@
 
 fclean: clean
 	@$(RM) $(NAME) > /dev/null
