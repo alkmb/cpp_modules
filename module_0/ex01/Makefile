@@ -1,23 +1,29 @@
-CC = g++
-CFLAGS = -Wall -Wextra -Werror -I includes -g
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-SRCS = src/main.cpp src/Contact.cpp
+SRCS = src/main.cpp src/Contact.cpp src/PhoneBook.cpp
+OBJS = $(SRCS:.cpp=.o)
 NAME = PhoneBook
 HEADER = includes/Phonebook.hpp includes/Contact.hpp
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HEADER) Makefile
-	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "✅✅$(NAME) is ready!✅✅"
 
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "✅ Done cleaning up executables!"
+	@echo "Clening executable..."
+	$(RM) $(NAME)
+	@echo "Done cleaning up executable."
 
 clean:
-	@$(RM) obj
-	echo "✅ Done cleaning up!"
+	@echo "Clening objects..."
+	$(RM) $(OBJS)
+	@echo "Done cleaning objects."
 
 re: fclean all

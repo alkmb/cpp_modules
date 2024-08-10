@@ -1,4 +1,5 @@
 # include "../includes/Bureaucrat.hpp"
+# include "../includes/Form.hpp"
 
 Bureaucrat::Bureaucrat(std::string _name, int _grade)
 {

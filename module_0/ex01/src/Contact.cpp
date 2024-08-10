@@ -1,51 +1,51 @@
 #include "../includes/Contact.hpp"
 
-std::string	Contact::get_first_name()
+std::string	Contact::getFirstName()
 {
-	return (this->_first_name);
+	return (this->_firstName);
 }
 
-std::string	Contact::get_last_name()
+std::string	Contact::getLastName()
 {
-	return (this->_last_name);
+	return (this->_lastName);
 }
 
-std::string	Contact::get_nicke_name()
+std::string	Contact::getNickeName()
 {
-	return (this->_nicke_name);
+	return (this->_nickeName);
 }
 
-std::string	Contact::get_darkest_secret()
+std::string	Contact::getDarkestSecret()
 {
-	return (this->_darkest_secret);
+	return (this->_darkestSecret);
 }
 
-std::string	Contact::get_phone_number()
+std::string	Contact::getPhoneNumber()
 {
-	return (this->_phone_number);
+	return (this->_phoneNumber);
 }
 
-void	Contact::set_first_name(std::string firstname)
+void	Contact::setFirstName(std::string firstName)
 {
-	this->_first_name = firstname;
+	this->_firstName = firstName;
 }
 
-void Contact::set_last_name(std::string lastname)
+void Contact::setLastName(std::string lastName)
 {
-	this->_last_name = lastname;
+	this->_lastName = lastName;
 }
 
-void Contact::set_nicke_name(std::string nickename)
+void Contact::setNickeName(std::string nickeName)
 {
-	this->_nicke_name = nickename;
+	this->_nickeName = nickeName;
 }
 
-void Contact::set_darkest_secret(std::string darkestsecret)
+void Contact::setDarkestSecret(std::string darkestSecret)
 {
-	this->_darkest_secret = darkestsecret;
+	this->_darkestSecret = darkestSecret;
 }
 
-void Contact::set_phone_number(std::string phonenumber)
+void Contact::setPhoneNumber(std::string phoneNumber)
 {
-	this->_phone_number = phonenumber;
+	this->_phoneNumber = phoneNumber;
 }

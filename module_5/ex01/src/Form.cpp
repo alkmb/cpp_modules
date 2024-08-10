@@ -1,17 +1,18 @@
-#include "../includes/Form.hpp"
+# include "../includes/Bureaucrat.hpp"
+# include "../includes/Form.hpp"
 
-Form::Form(std::string _name, int _grade)
+Form::Form(std::string _name, bool _signed,int  _gradeSign, int _gradeExec)
 {
+
     this->_name = _name;
-    this->_grade = _grade;
-    std::cout << "the object with name" << this->_name << " and grade " << this->_grade << " is created" << std::endl;
+    this->_signed = _signed;
+    this->_gradeExec = _gradeExec;
+    this->_gradeSign = _gradeSign;
+    std::cout << "Form" << this->_name << "created with grades; " << "Sign: " << this-_gradeSign << "Exec: " << this->_gradeExec << std::endl;
 }
 
-Form::~Form()
-{
-    std::cout << "the Form " << this->_name << "with grade " << this->_grade << std::endl;
-}
-
+Form::~Form() 
+{}
 void Form::getGrade()
 {
     std::cout << "the grade of the Form " << this->_name << " is " << this->_grade << std::endl;
@@ -24,9 +25,9 @@ void Form ::getName()
 
 void Form::beSigned()
 {
-    if (this->_grade >= 150)
+    if (this->_gradeSign >= 150)
         GradeTooHighException();
-    else if (this->_grade <= 0)
+    else if (this->_gradeSign <= 0)
         GradeTooLowException();
     else
     {
@@ -43,28 +44,4 @@ void Form::GradeTooHighException()
 void Form::GradeTooLowException()
 {
     std::cout << this->_name << "cannot sign the Form because the grade is too low" << std::endl;
-}
-
-void Form::increaseGrade(int sum)
-{
-    this->_grade += sum;
-    if (this->_grade >= 150 || this->_grade <= 0)
-    {
-        this->_grade -= sum;
-        std::cout << this->_name << ": Could not increase the grade. The current grade is " << this->_grade << std::endl;
-    }
-    else
-        std::cout << this->_name << ": grade updated to " << this->_grade << " by adding " << sum << std::endl;
-}
-
-void Form::decreaseGrade(int sum)
-{
-    this->_grade -= sum;
-    if (this->_grade >= 150 || this->_grade <= 0)
-    {
-        this->_grade += sum;
-        std::cout << this->_name << ": Could not decrease the grade. The current grade is " << this->_grade << std::endl;
-    }
-    else
-        std::cout << this->_name << ": grade updated to " << this->_grade << " by subtracting " << sum << std::endl;
 }
