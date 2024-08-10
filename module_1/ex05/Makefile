@@ -1,27 +1,28 @@
-CC = g++
-CFLAGS = -Wall -Wextra -Werror -I includes -g -std=c++98 -fsanitize=address
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-SRCS = $(wildcard src/*.cpp)
-OBJS = $(patsubst src/%.cpp,obj/%.o,$(SRCS))
+SRCS = src/main.cpp src/Harl.cpp
+OBJS = $(SRCS:.cpp=.o)
 NAME = Harl
-HEADER = includes/*.hpp
+HEADER = includes/Harl.hpp
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HEADER) Makefile
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) > /dev/null
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "✅✅$(NAME) is ready!✅✅"
 
-obj/%.o: src/%.cpp
-	@mkdir -p obj
-	@$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 fclean: clean
-	@$(RM) $(NAME) > /dev/null
-	@echo "✅ Done cleaning up executables!"
+	@echo "Clening executable..."
+	$(RM) $(NAME)
+	@echo "Done cleaning up executable."
 
 clean:
-	@$(RM) obj > /dev/null
-	@echo "✅ Done cleaning up!"
+	@echo "Clening objects..."
+	$(RM) $(OBJS)
+	@echo "Done cleaning objects."
 
 re: fclean all

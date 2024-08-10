@@ -1,34 +1,29 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: nobmk <nobmk@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/15 22:52:18 by nobmk             #+#    #+#              #
-#    Updated: 2024/05/16 00:52:30 by nobmk            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+RM = rm -rf
 
 NAME = Moar-Brainz!
-CC = c++
-CFLAGS = -Wall -Wextra -Werror
-INCLUDES = includes/Zombie.hpp
 SRCS = src/Zombie.cpp src/zombieHorde.cpp src/main.cpp
-RM = rm -rf
+OBJS = $(SRCS:.cpp=.o)
+HEADER = includes/Zombie.hpp
 
 all: $(NAME)
 
-$(NAME): $(SRCS) $(HEADER) Makefile
-	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME) > /dev/null
+$(NAME): $(OBJS) $(HEADER) Makefile
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "✅✅$(NAME) is ready!✅✅"
 
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
 fclean: clean
-	@$(RM) $(NAME) > /dev/null
+	@echo "Clening executable..."
+	@$(RM) $(NAME)
 	@echo "✅ Done cleaning up executables!"
 
 clean:
-	@$(RM) obj > /dev/null
+	@echo "Clening objects..."
+	@$(RM) $(OBJS)
 	@echo "✅ Done cleaning up!"
 
 re: fclean all

@@ -1,6 +1,7 @@
 #include "../includes/Zombie.hpp"
 
-int main( void ) {
+int main( void ) 
+{
     std::string name;
 
     std::cout << "zombie on the stack." << std::endl;
@@ -8,6 +9,7 @@ int main( void ) {
     std::cin >> name;
 
     Zombie zombi1(name);
+    zombi1.announce();
     
     std::cout << "zombie on the heap." << std::endl;
     std::cout << "name: ";

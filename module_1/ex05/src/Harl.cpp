@@ -8,7 +8,6 @@ Harl::~Harl()
 {
 }
 
-
 void Harl::debug(void)
 {
 	std::cout <<  "I love having extra bacon for my 7XL-double \

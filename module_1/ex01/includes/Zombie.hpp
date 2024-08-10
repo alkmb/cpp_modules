@@ -5,18 +5,18 @@
 # include <string>
 # include <cstdlib>
 
-
 class Zombie 
 {
     private:
-        std::string name;
+        std::string _name;
     public:
         Zombie();
         ~Zombie();
-        void announce();
+        void    announce();
         Zombie* newZombie(std::string name);
-        void setName(std::string name);
+        void    setName(std::string name);
 };
 
 Zombie *zombieHorde(int N, std::string name);
+
 #endif

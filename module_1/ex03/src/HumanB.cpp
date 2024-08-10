@@ -1,7 +1,6 @@
 # include "../includes/HumanB.hpp"
-#include <iostream>
 
-HumanB::HumanB(std::string name) : name(name), weapon(NULL)
+HumanB::HumanB(std::string _name) : _name(_name), _weapon(NULL)
 {
 }
 
@@ -9,15 +8,15 @@ HumanB::~HumanB()
 {
 }
 
-void HumanB::setWeapon(Weapon& weapon)
+void HumanB::setWeapon(Weapon& _weapon)
 {
-    this->weapon = &weapon;
+    this->_weapon = &_weapon;
 }
 
 void HumanB::attack() const
 {
-    if (this->weapon && this->weapon->getType() != "")
-        std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+    if (this->_weapon && this->_weapon->getType() != "")
+        std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
     else
-        std::cout << this->name << " no weapon, so no attack" << std::endl;
+        std::cout << this->_name << " no weapon, so no attack" << std::endl;
 }

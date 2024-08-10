@@ -1,21 +1,29 @@
-NAME= HI_THIS_IS_BRAIN
-CC= c++
-CFLAGS= -Wall -Wextra -Werror
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -rf
-SRCS= main.cpp
+
+SRCS = main.cpp
+OBJS = $(SRCS:.cpp=.o)
+NAME = HI_THIS_IS_BRAIN
 
 all: $(NAME)
 
-$(NAME): $(SRCS) $(HEADER) Makefile
-	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME) > /dev/null
-	@echo "✅✅$(NAME) is ready!✅✅"
+$(NAME): $(OBJS)
+	@echo "Comiling objects..."
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "$(NAME) is compiled and ready to execute."
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 fclean: clean
-	@$(RM) $(NAME) > /dev/null
-	@echo "✅ Done cleaning up executables!"
+	@echo "Clening executable..."
+	$(RM) $(NAME)
+	@echo "Done cleaning up executable."
 
 clean:
-	@$(RM) obj > /dev/null
-	@echo "✅ Done cleaning up!"
+	@echo "Clening objects & executable..."
+	$(RM) $(OBJS)
+	@echo "Done cleaning objects & executable."
 
 re: fclean all
