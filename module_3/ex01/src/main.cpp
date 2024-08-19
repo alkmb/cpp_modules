@@ -1,35 +1,23 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nobmk <nobmk@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 07:59:04 by nobmk             #+#    #+#             */
-/*   Updated: 2024/05/22 22:43:26 by nobmk            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 #include "../includes/ScavTrap.hpp"
 
-int main(void)
+int	main(void)
 {
-    ScavTrap scavtrap( "manuel" );
-    ScavTrap scavtrap2( scavtrap );
-    
-    std::cout << "ScavTrap test" << std::endl;
+	std::string	robotNames[4] = 
+    {"brrrrr", "pumba", "oleloscaracole", "samba"};
+	ClapTrap drRobor(robotNames[3]);
+	ScavTrap miniRobot(robotNames[0]);
+	
+	ClapTrap mrRobot(drRobor);
+	
+	drRobor.attack("elloco");
+	
+	miniRobot.attack();
+	miniRobot.guardGate();
 
-    // ScavTrap test
-    scavtrap.attack("target");
-    scavtrap.attack("target");
-    scavtrap.takeDamage(5);
-    scavtrap.beRepaired(5);
-    scavtrap.guardGate();
-    
-
-    
+	ScavTrap manuel(miniRobot);
 
 
-    return 0;
+	return 0;
 }
