@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nobmk <nobmk@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 07:59:02 by nobmk             #+#    #+#             */
-/*   Updated: 2024/05/21 10:35:25 by nobmk            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/ClapTrap.hpp"
 
 ClapTrap::ClapTrap( std::string name ) : name(name), hitpoints(10), energyPoints(10), attackDamage(0)
