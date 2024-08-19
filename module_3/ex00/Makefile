@@ -7,14 +7,21 @@ INC = ClapTrap.hpp
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) $(INCLUDES)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@echo "$(NAME) is ready to execute."
 
-%.o: %.cpp $(INC)
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@echo "Cleaning up objects..."
+	$(RM) $(OBJS)
+	@echo "Objects removed"
 
 fclean: clean
+	@echo "Cleaning up executable..."
+	$(RM) $(NAME)
+	@echo "Executable removed."
 
-re: fclean all
+re: clean all
