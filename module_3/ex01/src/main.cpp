@@ -13,7 +13,7 @@ int	main(void)
 	
 	drRobor.attack("elloco");
 	
-	miniRobot.attack();
+	miniRobot.attack("oleole");
 	miniRobot.guardGate();
 
 	ScavTrap manuel(miniRobot);
