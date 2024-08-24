@@ -1,15 +1,27 @@
-NAME = Brain
+NAME = Abstaract
 CC = c++
-CFLAGS = -Wall -Werror -Wextra
-SRC = src/Animal.cpp src/Cat.cpp src/Dog.cpp src/main.cpp src/WrongAnimal.cpp src/WrongCat.cpp src/Brain.cpp
-INC = /include/Animal.hpp /include/Cat.hpp /include/Dog.hpp /include/WrongAnimal.hpp /include/WrongCat.hpp /include/Brain.hpp
+CFLAGS = -Wall -Werror -Wextra -std=c++98
+SRCS = src/Animal.cpp src/AAnimal.cpp src/Cat.cpp src/Dog.cpp src/main.cpp src/WrongAnimal.cpp src/WrongCat.cpp src/Brain.cpp
+OBJS = $(SRCS:.cpp=.o)
+INCLUDES = includes/Animal.hpp includes/AAnimal.hpp includes/Cat.hpp includes/Dog.hpp includes/WrongAnimal.hpp includes/WrongCat.hpp includes/Brain.hpp
  
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJS) $(INCLUDES)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@echo "$(NAME) is ready to execute."
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(NAME)
+	@echo "Cleaning up objects..."
+	$(RM) $(OBJS)
+	@echo "Objects removed"
+
+fclean: clean
+	@echo "Cleaning up executable..."
+	$(RM) $(NAME)
+	@echo "Executable removed."
 
 re: clean all
