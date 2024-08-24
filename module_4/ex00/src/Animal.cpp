@@ -6,10 +6,10 @@ Animal::Animal()
     std::cout << "Animal constructor is being called" << std::endl;
 }
 
-Animal::Animal(std::string type)
+Animal::Animal(std::string _type)
 {
-    this->type = type;
-    std::cout << "Animal constructor called and its assigning type" << std::endl;
+    this->_type = _type;
+    std::cout << "Animal constructor called and its assigning _type" << std::endl;
 }
 
 Animal::~Animal()
@@ -27,13 +27,13 @@ Animal& Animal::operator=( const Animal& rhs )
 {
     std::cout << "Animal assignation operator called" << std::endl;
     if (this != &rhs)
-        this->type = rhs.type;
+        this->_type = rhs._type;
     return *this;
 }
 
 std::string Animal::getType() const
 {
-    return this->type;
+    return this->_type;
 }
 
 void Animal::makeSound() const

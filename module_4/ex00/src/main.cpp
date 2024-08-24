@@ -41,7 +41,7 @@ int main()
     const WrongAnimal *wrong = new WrongAnimal();
     const WrongAnimal *wrongCat = new WrongCat();
 
-    std::cout << "Wrong Type: " << wrong->getType() << " " << std::endl;
+    std::cout << "WrongAnimal Type: " << wrong->getType() << " " << std::endl;
     std::cout << "WrongCat Type: " << wrongCat->getType() << " " << std::endl;
     
     std::cout << std::endl;
@@ -54,7 +54,7 @@ int main()
     std::cout << std::endl;
     std::cout << "Destructor test" << std::endl;
     std::cout << std::endl;
-    
+
     delete  wrong;
     delete  wrongCat;
 }
