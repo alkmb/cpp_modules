@@ -1,28 +1,18 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nobmk <nobmk@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 04:06:11 by nobmk             #+#    #+#             */
-/*   Updated: 2024/05/25 04:52:38 by nobmk            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
+# include "../includes/Animal.hpp"
 
-Animal::Animal( void ) : type( "Animel" )
+Animal::Animal()
 {
-    std::cout << this->type << " constructor called" << std::endl;
+    std::cout << "Animal constructor is being called" << std::endl;
 }
 
-Animal::Animal( std::string type ) : type( type )
+Animal::Animal(std::string _type)
 {
-    std::cout << "Animal " << this->type << " constructor called" << std::endl;
+    this->_type = _type;
+    std::cout << "Animal constructor called and its assigning _type" << std::endl;
 }
 
-Animal::~Animal( void )
+Animal::~Animal()
 {
     std::cout << "Animal destructor called" << std::endl;
 }
@@ -35,19 +25,19 @@ Animal::Animal( const Animal& src )
 
 Animal& Animal::operator=( const Animal& rhs )
 {
-    std::cout << "Animal assignment operator called" << std::endl;
-    if ( this != &rhs ) {
-        this->type = rhs.type;
-    }
+    std::cout << "Animal assignation operator called" << std::endl;
+    if (this != &rhs)
+        this->_type = rhs._type;
     return *this;
 }
 
-void Animal::makeSound( void ) const
+std::string Animal::getType() const
 {
-    std::cout << "Animal makeSound called" << std::endl;
+    return this->_type;
 }
 
-std::string    Animal::getType( void ) const
+void Animal::makeSound() const
 {
-    return this->type;
+    std::cout << "Animal sound!" << std::endl;
 }
+

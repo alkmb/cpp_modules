@@ -1,19 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nobmk <nobmk@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 13:56:39 by nobmk             #+#    #+#             */
-/*   Updated: 2024/05/25 04:38:52 by nobmk            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 # include "../includes/Cat.hpp"
 
 Cat::Cat( void ) : Animal("Cat") {
-    std::cout << this->type << " constructor called" << std::endl;
+    std::cout << this->_type << " constructor called" << std::endl;
     try {
         this->_brain = new Brain();
     }
@@ -24,7 +12,7 @@ Cat::Cat( void ) : Animal("Cat") {
 
 Cat::~Cat( void )
 {
-    std::cout << this->type << " destructor called" << std::endl;
+    std::cout << this->_type << " destructor called" << std::endl;
     delete  this->_brain;
 }
 
@@ -43,7 +31,7 @@ Cat& Cat::operator=( const Cat& src )
     std::cout << "<Cat.cpp:32> Cat copy called." << std::endl;
     if (this != &src)
     {
-        this->type = src.type;
+        this->_type = src._type;
         this->_brain = new Brain( *src._brain );
     }
     return *this;
