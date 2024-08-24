@@ -3,27 +3,18 @@
 
 Animal::Animal()
 {
-    std::cout << "Animal constructor called" << std::endl;
+    std::cout << "Animal constructor is being called" << std::endl;
 }
 
-Animal::Animal(std::string type) : type(type)
+Animal::Animal(std::string type)
 {
-    std::cout << "Animal constructor called" << std::endl;
+    this->type = type;
+    std::cout << "Animal constructor called and its assigning type" << std::endl;
 }
 
 Animal::~Animal()
 {
     std::cout << "Animal destructor called" << std::endl;
-}
-
-std::string Animal::getType() const
-{
-    return this->type;
-}
-
-void Animal::makeSound() const
-{
-    std::cout << "Animal sound!" << std::endl;
 }
 
 Animal::Animal( const Animal& src )
@@ -40,4 +31,13 @@ Animal& Animal::operator=( const Animal& rhs )
     return *this;
 }
 
+std::string Animal::getType() const
+{
+    return this->type;
+}
+
+void Animal::makeSound() const
+{
+    std::cout << "Animal sound!" << std::endl;
+}
 

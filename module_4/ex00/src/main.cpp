@@ -7,16 +7,30 @@
 
 int main()
 {
-    const Animal* meta = new Animal();
+    std::cout << std::endl;
+    std::cout << "Constructors test" << std::endl;
+    std::cout << std::endl;
+
+    const Animal* original = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
     std::cout << "J Type: " << j->getType() << " " << std::endl;
     std::cout << "I Type: " << i->getType() << " " << std::endl;
-    i->makeSound();
-    meta->makeSound();
+    
+    std::cout << std::endl;
+    std::cout << "Sound test" << std::endl;
+    std::cout << std::endl;
 
-    delete  meta;
+    i->makeSound();
+    j->makeSound();
+    original->makeSound();
+
+    std::cout << std::endl;
+    std::cout << "Destructor test" << std::endl;
+    std::cout << std::endl;
+
+    delete  original;
     delete  j;
     delete  i;
 
@@ -29,9 +43,18 @@ int main()
 
     std::cout << "Wrong Type: " << wrong->getType() << " " << std::endl;
     std::cout << "WrongCat Type: " << wrongCat->getType() << " " << std::endl;
+    
+    std::cout << std::endl;
+    std::cout << "Sound test" << std::endl;
+    std::cout << std::endl;
+    
     wrong->makeSound();
     wrongCat->makeSound();
 
+    std::cout << std::endl;
+    std::cout << "Destructor test" << std::endl;
+    std::cout << std::endl;
+    
     delete  wrong;
     delete  wrongCat;
 }

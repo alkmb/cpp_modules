@@ -8,7 +8,6 @@ class Dog : public Animal
 {
     public:
             Dog();
-            Dog();
             ~Dog();
             void makeSound() const;
 };
