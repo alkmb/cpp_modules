@@ -1,7 +1,6 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "string": "cpp",
         "cctype": "cpp",
         "clocale": "cpp",
         "cmath": "cpp",
@@ -25,6 +24,7 @@
         "condition_variable": "cpp",
         "cstdint": "cpp",
         "forward_list": "cpp",
+        "string": "cpp",
         "vector": "cpp",
         "exception": "cpp",
         "algorithm": "cpp",

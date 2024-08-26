@@ -3,7 +3,7 @@
 Bureaucrat::Bureaucrat()
 {
     this->_name = "default";
-    this->_grade = 1;
+    this->_grade = 150;
     std::cout << "the object with name" << this->_name << " and grade " << this->_grade << " is created" << std::endl;
 }
 
@@ -30,7 +30,7 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "the Bureaucrat " << this->_name << "with grade " << this->_grade << std::endl;
+    std::cout << "the Bureaucrat " << this->_name << " with grade " << this->_grade << std::endl;
 }
 
 int Bureaucrat::getGrade() const
@@ -38,33 +38,73 @@ int Bureaucrat::getGrade() const
     return this ->_grade;
 }
 
+const char	*Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Is not possible to get higher grade than 1.";
+}
+
+const char	*Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Is not possible to get lower grade than 150.";
+}
+
 void Bureaucrat::increaseGrade(int sum)
 {
-    this->_grade += sum;
-    if (this->_grade >= 150 || this->_grade <= 0)
+    try
     {
         this->_grade -= sum;
-        std::cout << this->_name << ": Could not increase the grade. The current grade is " << this->_grade << std::endl;
-    }
-    else
+        if (this->_grade > 150)
+        {
+            throw GradeTooLowException();
+        }
+        else if (this->_grade <= 0)
+        {
+            throw GradeTooHighException();
+        }
         std::cout << this->_name << ": grade updated to " << this->_grade << " by adding " << sum << std::endl;
+    }
+    catch (const GradeTooHighException &e) 
+    {
+        this->_grade += sum;
+        std::cout << this->_name << ": Could not increase the grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
+    }
+    catch (const GradeTooLowException &e) 
+    {
+        this->_grade += sum;
+        std::cout << this->_name << ": Could not increase the grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
+    }
 }
 
 void Bureaucrat::decreaseGrade(int sum)
 {
-    this->_grade -= sum;
-    if (this->_grade >= 150 || this->_grade <= 0)
+    try
     {
         this->_grade += sum;
-        std::cout << this->_name << ": Could not decrease the grade. The current grade is " << this->_grade << std::endl;
+        if (this->_grade > 150)
+        {
+            throw GradeTooLowException();
+        }
+        else if (this->_grade <= 0)
+        {
+            throw GradeTooHighException();
+        }
+        std::cout << this->_name << ": grade updated to " << this->_grade << " by subtracting " << sum << std::endl;
     }
-    else
-        std::cout << this->_name << ": grade updated to " << this->_grade << " by extracting " << sum << std::endl;
+    catch (const GradeTooHighException &e) 
+    {
+        this->_grade -= sum;
+        std::cout << this->_name << ": Could not decrease the grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
+    }
+    catch (const GradeTooLowException &e) 
+    {
+        this->_grade -= sum;
+        std::cout << this->_name << ": Could not decrease the grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
+    }
 }
 
-void Bureaucrat::getName()
+std::string Bureaucrat::getName()
 {
-    std::cout << "the name of this Bureaucrat is " << this->_name << std::endl;
+    return this->_name;
 }
 
 std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs )
