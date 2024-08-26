@@ -1,5 +1,14 @@
 #include "../includes/ScavTrap.hpp"
 
+ScavTrap::ScavTrap() : ClapTrap()
+{
+	_scavName = "default";
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
+	std::cout << "ScavTrap " + _scavName << " constructor called." << std::endl;
+}
+
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
@@ -14,7 +23,6 @@ ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap " + _scavName + " has been destroyed." << std::endl;
 }
-
 
 void	ScavTrap::attack(const std::string& target)
 {

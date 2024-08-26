@@ -1,5 +1,14 @@
 #include "../includes/ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+    this->_name = "default";
+    std::cout << "ClapTrap " << _name << " is created" << std::endl;
+    this->_hitPoints = 10;
+    this->_energyPoints = 10;
+    this->_attackDamage = 0;
+}
+
 ClapTrap::ClapTrap( std::string name )
 {
     this->_name = name;
