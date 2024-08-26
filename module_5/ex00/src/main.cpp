@@ -1,29 +1,20 @@
 # include "../includes/Bureaucrat.hpp"
 
-int main ()
+int main() 
 {
-//SET OBJECTS
-    Bureaucrat Bureauacrat1("corredor", 150);
-    Bureaucrat Bureauacrat2("form", 87);
-    Bureaucrat Bureauacrat3("office", 53);
-    Bureaucrat Bureauacrat4("waiting queue", 120);
-    Bureaucrat Bureauacrat5("corredor", 1);
-
-//GET NAME
-
-    Bureauacrat1.getName();
-    Bureauacrat2.getName();
-    Bureauacrat3.getName();
-    Bureauacrat4.getName();
-
-//GET GRADE
-    Bureauacrat1.getGrade();
-    Bureauacrat2.getGrade();
-    Bureauacrat3.getGrade();
-    Bureauacrat4.getGrade();
-
-//PLAY WITH GRADE
-
+    Bureaucrat Bureauacrat1("John", 50);
+    Bureaucrat Bureauacrat2("Jane", 75);
+    Bureaucrat Bureauacrat3("Jim", 100);
+    Bureaucrat Bureauacrat4("Jack", 25);
+    Bureaucrat Bureauacrat5("Jill", 1);
+    // GET GRADE
+    std::cout << "Initial Grades: " << std::endl;
+    std::cout << "Bureauacrat1: " << Bureauacrat1.getGrade() << std::endl;
+    std::cout << "Bureauacrat2: " << Bureauacrat2.getGrade() << std::endl;
+    std::cout << "Bureauacrat3: " << Bureauacrat3.getGrade() << std::endl;
+    std::cout << "Bureauacrat4: " << Bureauacrat4.getGrade() << std::endl;
+    std::cout << "Bureauacrat5: " << Bureauacrat5.getGrade() << std::endl;
+    // PLAY WITH GRADE
     Bureauacrat1.increaseGrade(20);
     Bureauacrat1.increaseGrade(20);
     Bureauacrat1.increaseGrade(20);
@@ -31,11 +22,18 @@ int main ()
     Bureauacrat1.decreaseGrade(20);
     Bureauacrat1.decreaseGrade(20);
     Bureauacrat1.decreaseGrade(20);
-    Bureauacrat1.decreaseGrade(20);
-    Bureauacrat1.decreaseGrade(20);
-    Bureauacrat5.decreaseGrade(1);
 
+    // Test default constructor
+    Bureaucrat BureauacratDefault;
+    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
 
+    // Test copy constructor
+    Bureaucrat BureauacratCopy(Bureauacrat1);
+    std::cout << "Copy of Bureauacrat1 grade: " << BureauacratCopy.getGrade() << std::endl;
+
+    // Test assignment operator
+    Bureaucrat BureauacratAssigned = Bureauacrat2;
+    std::cout << "Assigned Bureauacrat2 grade: " << BureauacratAssigned.getGrade() << std::endl;
 
     return 0;
 }
