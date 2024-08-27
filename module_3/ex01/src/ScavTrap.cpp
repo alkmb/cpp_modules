@@ -105,5 +105,8 @@ void ScavTrap::takeDamage(unsigned int amount)
 
 void	ScavTrap::guardGate()
 {
-	std::cout << this->_name << "is keeping the gate." << std::endl;
+    if (_energyPoints > 0 && _hitPoints > 0)
+       std::cout << this->_name << " is keeping the gate." << std::endl;
+    else
+        std::cout << this->_name << " cannot keep the gate." << std::endl;
 }

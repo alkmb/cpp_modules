@@ -9,7 +9,7 @@ int main(void)
 
     std::cout << "Energy test" << std::endl;
     // energy test-------------------------------
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < 18; ++i) {
         Scavtrap.attack("target");
     }
 
@@ -21,6 +21,7 @@ int main(void)
     Scavtrap.takeDamage(5);
     Scavtrap.beRepaired(5);
     Scavtrap.attack("target");
+	Scavtrap.guardGate();
 
     std::cout << std::endl;
     std::cout << "Copy constructor test" << std::endl;
@@ -28,8 +29,10 @@ int main(void)
     // copy constructor test--------------------
     ScavTrap copyScavtrap(Scavtrap);
     copyScavtrap.attack("target_copy");
-    copyScavtrap.takeDamage(3);
-    copyScavtrap.beRepaired(3);
+    copyScavtrap.takeDamage(30);
+    copyScavtrap.beRepaired(30);
+	copyScavtrap.guardGate();
+
 
 
     for (int i = 0; i < 6; ++i) {
@@ -44,21 +47,20 @@ int main(void)
     Scavtrap1.takeDamage(5);
     Scavtrap1.beRepaired(5);
     Scavtrap1.attack("target");
+	Scavtrap1.guardGate();
 
-    Scavtrap1.takeDamage(5);
-    Scavtrap1.takeDamage(5);
+    Scavtrap1.takeDamage(50);
+    Scavtrap1.takeDamage(60);
     Scavtrap1.attack("target");
     
     Scavtrap1.beRepaired(5);
     Scavtrap1.attack("target");
+	Scavtrap1.guardGate();
 
     ScavTrap assigned = Scavtrap1;
 
     assigned.beRepaired(5);
     assigned.attack("copytarget");
-
-    std::cout << std::endl;
-    std::cout << "Copy constructor test" << std::endl;
-
+	Scavtrap1.guardGate();
     return 0;
 }
