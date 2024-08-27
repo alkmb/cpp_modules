@@ -18,7 +18,27 @@ FragTrap::FragTrap( std::string _name ) : ClapTrap(_name)
     this -> _attackDamage = 30;
     
     std::cout << "FragTrap "<< this->_name << " is born" << std::endl;
+
 }
+
+FragTrap::FragTrap( const FragTrap &src )
+{
+    *this = src;
+    std::cout << "copy constructor called and used " << std::endl;
+}
+
+FragTrap &FragTrap::operator=( const FragTrap &rhs )
+{
+    std::cout << "copy assigment operator constructor called and used " << std::endl;
+    if (this != &rhs)
+    {
+        this->_name = rhs._name;
+        this->_attackDamage = rhs._attackDamage;
+        this->_hitPoints = rhs._hitPoints;
+        this->_attackDamage = rhs._attackDamage;
+    }
+}
+
 
 FragTrap::~FragTrap()
 {

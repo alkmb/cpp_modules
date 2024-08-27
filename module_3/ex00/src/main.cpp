@@ -6,7 +6,7 @@ int main(void)
     ClapTrap claptrap1;
 
     std::cout << "Energy test" << std::endl;
-    // energy test
+    // energy test-------------------------------
     for (int i = 0; i < 6; ++i) {
         claptrap.attack("target");
     }
@@ -15,7 +15,7 @@ int main(void)
     std::cout << "Repair and damage test" << std::endl;
 
     std::cout << "adding energypoints to objest for testing" << std::endl;
-    // repair and damage test
+    // repair and damage test-------------------------
     claptrap.takeDamage(5);
     claptrap.beRepaired(5);
     claptrap.attack("target");
@@ -23,7 +23,7 @@ int main(void)
     std::cout << std::endl;
     std::cout << "Copy constructor test" << std::endl;
 
-    // copy constructor test
+    // copy constructor test--------------------
     ClapTrap copyClaptrap(claptrap);
     copyClaptrap.attack("target_copy");
     copyClaptrap.takeDamage(3);
@@ -42,6 +42,18 @@ int main(void)
     claptrap1.takeDamage(5);
     claptrap1.beRepaired(5);
     claptrap1.attack("target");
+
+    claptrap1.takeDamage(5);
+    claptrap1.takeDamage(5);
+    claptrap1.attack("target");
+    
+    claptrap1.beRepaired(5);
+    claptrap1.attack("target");
+
+    ClapTrap assigned = claptrap1;
+
+    assigned.beRepaired(5);
+    assigned.attack("copytarget");
 
     std::cout << std::endl;
     std::cout << "Copy constructor test" << std::endl;
