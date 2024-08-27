@@ -3,25 +3,41 @@
 
 #include <iostream>
 #include <string>
+#include "Bureaucrat.hpp"
 
-# include "../includes/Bureaucrat.hpp"
-# include "../includes/Form.hpp"
+class Bureaucrat;
 
 class Form
 {
     private:
-        std::string const _name;
-        bool _signed;
-        int const _gradeSign;
-        int const _gradeExec;
+        const std::string _name;
+        const int _signGrade;
+        const int _execGrade;
+        bool _isSigned;
     public:
         Form();
+        Form(const std::string name, const int signGrade, const int execGrade);
+        Form(const Form &src);
+        Form &operator=(const Form &rhs);
         ~Form();
-        void getName();
-        void getGrade();
-        void beSigned();
-        void GradeTooHighException();
-        void GradeTooLowException(); 
+
+        std::string getName() const;
+        int getSignGrade() const;
+        int getExecGrade() const;
+        bool getIsSigned() const;
+        bool beSigned(const Bureaucrat &Bureaucrat);
+
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
 };
 
 #endif
