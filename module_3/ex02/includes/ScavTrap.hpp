@@ -3,11 +3,11 @@
 
 # include "ClapTrap.hpp"
 
-# include <string>
-# include <iostream>
-
 class	ScavTrap: public ClapTrap
 {
+	private:
+		std::string	_scavName;
+	
 	public:
 		ScavTrap();
         ScavTrap(const ScavTrap &src);
@@ -18,9 +18,6 @@ class	ScavTrap: public ClapTrap
 		void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 		void	guardGate();
-	
-	private:
-		std::string	_scavName;
 };
 
 #endif

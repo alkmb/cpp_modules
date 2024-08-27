@@ -1,4 +1,3 @@
-
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
@@ -7,15 +6,18 @@
 class FragTrap : public ClapTrap
 {
 	private:
-		std::string	_fragName;
-    public:
-        FragTrap();
-        FragTrap( std::string name );
-        ~FragTrap();
-        void attack(const std::string& target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
-        void highFivesGuys();
+    std::string	_fragName;
+
+  public:
+    FragTrap();
+    FragTrap( std::string name );
+    FragTrap(const FragTrap &src);
+    FragTrap &operator=(const FragTrap &rhs);
+    ~FragTrap();
+    void attack(const std::string& target);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
+    void highFivesGuys();
 };
 
 #endif
