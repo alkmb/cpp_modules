@@ -3,7 +3,7 @@
 ClapTrap::ClapTrap()
 {
     this->_name = "default";
-    std::cout << "ClapTrap " << _name << " is created" << std::endl;
+    std::cout << "ClapTrap " << _name << " is created with the default constructor" << std::endl;
     this->_hitPoints = 10;
     this->_energyPoints = 10;
     this->_attackDamage = 0;
@@ -12,7 +12,7 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap( std::string &name )
 {
     this->_name = name;
-    std::cout << "ClapTrap " << _name << " is created" << std::endl;
+    std::cout << "ClapTrap " << _name << " is created and has a name asigned" << std::endl;
     this->_hitPoints = 10;
     this->_energyPoints = 10;
     this->_attackDamage = 0;
@@ -21,12 +21,12 @@ ClapTrap::ClapTrap( std::string &name )
 ClapTrap::ClapTrap( const ClapTrap &src)
 {
     *this = src;
-    std::cout << "Copy constructror called" << std::endl;
+    std::cout << "Copy constructror called omg so cool" << std::endl;
 }
 
 ClapTrap    &ClapTrap::operator=(const ClapTrap &src)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "Copy assignment operator called please end this suffering now" << std::endl;
     this->_name = src._name;
     this->_hitPoints = src._hitPoints;
     this->_energyPoints = src._energyPoints;
@@ -36,7 +36,7 @@ ClapTrap    &ClapTrap::operator=(const ClapTrap &src)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap " << _name << " is destroyed" << std::endl;
+    std::cout << "ClapTrap " << _name << " is destroyed (they hit the northside tower) 0_0" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)

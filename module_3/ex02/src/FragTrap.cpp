@@ -17,19 +17,19 @@ FragTrap::FragTrap( std::string _name ) : ClapTrap(_name)
     this -> _energyPoints = 100;
     this -> _attackDamage = 30;
     
-    std::cout << "FragTrap "<< this->_name << " is born" << std::endl;
+    std::cout << "FragTrap "<< this->_name << " is born with a name and he is so cool" << std::endl;
 
 }
 
 FragTrap::FragTrap( const FragTrap &src ) : ClapTrap(src)
 {
     *this = src;
-    std::cout << "copy constructor called and used " << std::endl;
+    std::cout << "copy constructor called and its doing stuff i dunno what to change anymore " << std::endl;
 }
 
 FragTrap &FragTrap::operator=( const FragTrap &rhs )
 {
-    std::cout << "copy assigment operator constructor called and used " << std::endl;
+    std::cout << "copy assigment operator constructor called and used, again no changes come to mind" << std::endl;
     if (this != &rhs)
     {
         this->_name = rhs._name;
@@ -43,7 +43,7 @@ FragTrap &FragTrap::operator=( const FragTrap &rhs )
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap "<< this->_name << " is killed" << std::endl;
+    std::cout << "FragTrap "<< this->_name << " shared fate with kenny (OMG they killed kenny)" << std::endl;
 }
 
 void	FragTrap::attack(const std::string& target)

@@ -6,7 +6,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	std::cout << "ScavTrap " + _scavName << " constructor called." << std::endl;
+	std::cout << "ScavTrap " + _scavName << " constructor called. he is drunk now" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -15,7 +15,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	std::cout << "ScavTrap " + name << " constructor called." << std::endl;
+	std::cout << "ScavTrap " + name << " constructor called.he is drunk but now remembers his name" << std::endl;
 }
 
 ScavTrap::ScavTrap (const ScavTrap &src) : ClapTrap(src)
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap (const ScavTrap &src) : ClapTrap(src)
 
 ScavTrap &ScavTrap::operator= (const ScavTrap &rhs) 
 { 
-    std::cout << "the copy constructor was called" << std::endl;
+    std::cout << "the copy constructor was called i dunon man imagine this yourself" << std::endl;
     if (this != &rhs)
     {
         this->_name = rhs._name;
@@ -39,7 +39,7 @@ ScavTrap &ScavTrap::operator= (const ScavTrap &rhs)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " + _scavName + " has been destroyed." << std::endl;
+	std::cout << "ScavTrap " + _scavName + " has been destroyed. what a stupid subject rule" << std::endl;
 }
 
 void	ScavTrap::attack(const std::string& target)

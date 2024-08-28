@@ -3,7 +3,7 @@
 ClapTrap::ClapTrap()
 {
     this->_name = "default";
-    std::cout << "ClapTrap " << _name << " is created" << std::endl;
+    std::cout << "ClapTrap " << _name << " is created by default" << std::endl;
     this->_hitPoints = 10;
     this->_energyPoints = 10;
     this->_attackDamage = 0;
@@ -12,7 +12,7 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap( std::string &name )
 {
     this->_name = name;
-    std::cout << "ClapTrap " << _name << " is created" << std::endl;
+    std::cout << "ClapTrap " << _name << " is created with name assigned" << std::endl;
     this->_hitPoints = 10;
     this->_energyPoints = 10;
     this->_attackDamage = 0;
