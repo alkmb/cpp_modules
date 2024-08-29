@@ -64,44 +64,6 @@ void	ScavTrap::attack(const std::string& target)
     }
 }
 
-void ScavTrap::beRepaired(unsigned int amount)
-{
-    if (_energyPoints > 0 && _hitPoints > 0)
-    {
-        _hitPoints += amount;
-        int tmp = _energyPoints - 1;
-
-        if (tmp < 0)
-            _energyPoints = 0;
-        else
-            _energyPoints = tmp;        
-        std::cout << "ScavTrap " << _name << " repaired himeself by " << amount << " points" << std::endl;
-        std::cout << "ScavTrap " << _name << " has " << _energyPoints << " energy points left" << std::endl;
-        std::cout << "ScavTrap " << _name << " has " << _hitPoints << " _hitPoints left" << std::endl;
-    }
-    else if (_energyPoints <= 0)
-    {
-        std::cout << "ScavTrap " << _name << " not enough energy to repair" << std::endl;
-        std::cout << "ScavTrap " << _name << " has " << _energyPoints << " energy points left" << std::endl;
-        std::cout << "ScavTrap " << _name << " has " << _hitPoints << " _hitPoints left" << std::endl;
-    }
-
-}
-
-void ScavTrap::takeDamage(unsigned int amount)
-{
-
-    int tmp = _hitPoints - amount;
-
-    if (tmp < 0)
-        _hitPoints = 0;
-    else
-        _hitPoints = tmp;
-
-    std::cout << "ScavTrap " << _name << " took " << amount << " points of damage!" << std::endl;
-    std::cout << "ScavTrap " << _name << " has " << _hitPoints << " _hitPoints left" << std::endl;
-
-}
 
 void	ScavTrap::guardGate()
 {
