@@ -52,7 +52,7 @@ void	ScavTrap::attack(const std::string& target)
             _energyPoints = 0;
         else
             _energyPoints = tmp;    
-        std::cout << "ScavTrap " << _name << " attack " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+        std::cout << "ScavTrap " << _name << " attack with complete rage in his eyes " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
         std::cout << "ScavTrap " << _name << " has " << _energyPoints << " energy points left" << std::endl;
         std::cout << "ScavTrap " << _name << " has " << _hitPoints << " _hitPoints left" << std::endl;
     }
