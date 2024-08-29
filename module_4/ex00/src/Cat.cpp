@@ -3,12 +3,12 @@
 
 Cat::Cat() : Animal("Cat")
 {
-    std::cout << "Cat constructor called" << std::endl;
+    std::cout << "Cat constructor called meow i guess" << std::endl;
 }
 
 Cat::~Cat()
 {
-    std::cout << "Cat destructor called" << std::endl;
+    std::cout << "Cat destructor called this is so sad it keeps hapening" << std::endl;
 }
 
 void Cat::makeSound() const

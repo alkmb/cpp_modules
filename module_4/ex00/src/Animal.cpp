@@ -9,7 +9,7 @@ Animal::Animal()
 Animal::Animal(std::string _type)
 {
     this->_type = _type;
-    std::cout << "Animal constructor called and its assigning _type" << std::endl;
+    std::cout << "Animal constructor called and its assigning type" << std::endl;
 }
 
 Animal::~Animal()

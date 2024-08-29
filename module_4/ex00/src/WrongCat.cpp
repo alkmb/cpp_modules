@@ -3,10 +3,10 @@
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-    std::cout << "WrongCat constructor called and assigned type" << std::endl;
+    std::cout << "WrongCat constructor called and assigned type fgshhhhhhhhhh" << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-    std::cout << "WrongCat has been killed" << std::endl;
+    std::cout << "WrongCat has been killed lol this has to stop" << std::endl;
 }
