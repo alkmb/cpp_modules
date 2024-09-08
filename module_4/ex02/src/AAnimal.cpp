@@ -7,6 +7,7 @@ AAnimal::AAnimal()
 
 AAnimal::AAnimal(std::string _type) : _type(_type)
 {
+    this->_type = _type;
     std::cout << "AAnimal constructor called and its assigning _type" << std::endl;
 }
 

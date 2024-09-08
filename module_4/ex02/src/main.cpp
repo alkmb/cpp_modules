@@ -1,6 +1,7 @@
 # include "../includes/Cat.hpp"
 # include "../includes/Dog.hpp"
 # include "../includes/Animal.hpp"
+# include "../includes/AAnimal.hpp"
 # include "../includes/WrongCat.hpp"
 # include "../includes/WrongAnimal.hpp"
 # include "../includes/Brain.hpp"
@@ -29,6 +30,14 @@ int main(void)
     for (int i = 0; i < 4; i++) {
         delete animals[i];
     }
+
+    // std::cout << "\nCreating a Dog and a Cat using AAnimal pointers...\n" << std::endl;
+    // const AAnimal* a_j = new Dog();
+    // const AAnimal* a_i = new Cat();
+
+    // std::cout << "\nDeleting the Dog and the Cat using AAnimal pointers...\n" << std::endl;
+    // delete a_j;
+    // delete a_i;
 
     std::cout << "\nEnd of main function.\n" << std::endl;
     return 0;

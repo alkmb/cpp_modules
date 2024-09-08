@@ -8,9 +8,9 @@ class AAnimal
 {
         protected:
             std::string _type;
+            AAnimal( void );
 
         public:
-            AAnimal( void );
             AAnimal( std::string type );
             virtual ~AAnimal( void );
             AAnimal( const AAnimal& src );
