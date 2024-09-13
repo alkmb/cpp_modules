@@ -4,7 +4,6 @@ int main()
 {
     Bureaucrat Bureauacrat1("elmasloco", 50);
 
-    // GET GRADE
     std::cout << std::endl << "Initial Grades: " << std::endl << std::endl;
     std::cout << "Bureauacrat1: " << Bureauacrat1.getGrade() << std::endl << std::endl;
 
