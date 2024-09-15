@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-    this->_name = "default";
+    _name = "default";
     this->_grade = 150;
     std::cout << "the object with name" << this->_name << " and grade " << this->_grade << " is created" << std::endl;
 }
@@ -48,11 +48,11 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw()
 	return "Is not possible to get lower grade than 150.";
 }
 
-void Bureaucrat::signForm(Form &Form)
+void Bureaucrat::signAForm(AForm &AForm)
 {
-    if (Form.beSigned(*this))
+    if (AForm.beSigned(*this))
     {
-        std::cout << this->_name << " signed " << Form.getName() << std::endl;
+        std::cout << this->_name << " signed " << AForm.getName() << std::endl;
     }
     else
     {

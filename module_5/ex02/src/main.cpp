@@ -34,33 +34,11 @@ int main()
     std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
     std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl << std::endl;
 
-    std::cout << Form2.getName() << " creatd with grades: " << Form2.getExecGrade() 
-    << " | " << Form2.getSignGrade() << std::endl;
-    std::cout << "the form status is: " << Form2.getIsSigned() << std::endl;
-
-    BureauacratCopy.signForm(Form2);
     BureauacratCopy.increaseGrade(100);
-    BureauacratCopy.signForm(Form2);
 
-    std::cout << "the form status is: " << Form2.getIsSigned() << std::endl;
 
     Bureaucrat BureauacratAssigned = Bureauacrat1;
     std::cout << "Assigned Bureauacrat2 grade: " << BureauacratAssigned.getGrade() << std::endl << std::endl;
-// FORM TEST --------------------------------------------------------------------------------
-    std::cout << Form1.getName() << " creatd with grades: " << Form1.getExecGrade() 
-    << " | " << Form1.getSignGrade() << std::endl;
-    std::cout << "the form status is: " << Form1.getIsSigned() << std::endl;
-
-    BureauacratAssigned.increaseGrade(29);
-    BureauacratAssigned.decreaseGrade(59);
-
-    BureauacratAssigned.signForm(Form1);
-
-    std::cout << "the form status is: " << Form1.getIsSigned() << std::endl;
-
-    std::cout << "Assigned Bureauacrat1 grade: " << BureauacratAssigned.getGrade() << std::endl;
-    std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl << std::endl;
-
 
     return 0;
 }

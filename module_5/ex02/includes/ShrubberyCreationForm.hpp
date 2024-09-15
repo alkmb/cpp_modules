@@ -1,5 +1,5 @@
-#ifndef AFORM_HPP
-#define AFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include <iostream>
 #include <string>
@@ -7,19 +7,19 @@
 
 class Bureaucrat;
 
-class AForm
+class ShrubberyCreationForm
 {
     private:
         const std::string _name;
         const int _signGrade;
         const int _execGrade;
         bool _isSigned;
-        AForm();
+        ShrubberyCreationForm();
     public:
-        AForm(const std::string name, const int signGrade, const int execGrade);
-        AForm(const AForm &src);
-        AForm &operator=(const AForm &rhs);
-        virtual ~AForm();
+        ShrubberyCreationForm(const std::string name, const int signGrade, const int execGrade);
+        ShrubberyCreationForm(const ShrubberyCreationForm &src);
+        ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
+        virtual ~ShrubberyCreationForm();
 
         std::string getName() const;
         int getSignGrade() const;

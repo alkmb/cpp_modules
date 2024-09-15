@@ -5,7 +5,7 @@
 #include <string>
 #include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -20,7 +20,7 @@ class Bureaucrat
         ~Bureaucrat();
         std::string getName();
         void increaseGrade(int sum);
-        void signForm(Form &Form);
+        void signAForm(AForm &AForm);
         void decreaseGrade(int sum);
         int getGrade() const;
 

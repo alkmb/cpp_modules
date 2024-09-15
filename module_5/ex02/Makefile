@@ -1,9 +1,9 @@
 NAME= Mommy
 CC= c++
 CFLAGS= -Wall -Wextra -Werror -std=c++98
-SRCS= src/main.cpp src/Bureaucrat.cpp src/Form.cpp
+SRCS= src/main.cpp src/Bureaucrat.cpp src/AForm.cpp
 OBJS = $(SRCS:.cpp=.o)
-INCLUDES= includes/Bureaucrat.hpp includes/Form.hpp
+INCLUDES= includes/Bureaucrat.hpp includes/AForm.hpp
 
 all: $(NAME)
 
