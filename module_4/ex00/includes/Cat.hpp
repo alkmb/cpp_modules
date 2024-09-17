@@ -6,9 +6,9 @@
 class Cat : public Animal
 {
     public:
-            Cat();
-            ~Cat();
-            void makeSound() const;
+        Cat();
+        ~Cat();
+        void makeSound( void ) const;
 };
 
 #endif

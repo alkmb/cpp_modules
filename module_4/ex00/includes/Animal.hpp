@@ -7,15 +7,15 @@
 class Animal
 {
     private:
-                std::string _type;
+        std::string _type;
     public:
-                Animal();
-                Animal(std::string type);
-                virtual ~Animal( void );
-                Animal( const Animal& src );
-                Animal& operator=( const Animal& rhs );
-                virtual void    makeSound( void ) const;
-                std::string     getType( void ) const; 
+        Animal();
+        Animal(std::string type);
+        Animal( const Animal& src );
+        virtual ~Animal( void );
+        Animal& operator=( const Animal& rhs );
+        std::string     getType( void ) const; 
+        virtual void    makeSound( void ) const;
 };
 
 #endif
