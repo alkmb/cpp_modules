@@ -2,19 +2,22 @@
 
 Dog::Dog( void ) : Animal( "Dog" )
 {
-    std::cout << this->_type << " constructor called" << std::endl;
+    std::cout << this->_type << " constructor \
+called" << std::endl;
     try {
         this->_brain = new Brain();
     }
     catch (const std::bad_alloc& e) {
-        std::cout << "Memory Allocation is failed : " << e.what() << std::endl;
+        std::cout << "Memory Allocation is \
+failed : " << e.what() << std::endl;
     }
 }
 
 Dog::~Dog( void )
 {
     delete  this->_brain;
-    std::cout << this->_type << " destructor called" << std::endl;
+    std::cout << this->_type << " destructor \
+called" << std::endl;
 }
 
 void    Dog::makeSound( void ) const
