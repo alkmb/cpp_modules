@@ -21,11 +21,14 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
     return *this;
 }
 
-Bureaucrat::Bureaucrat(std::string _name, int _grade)
+Bureaucrat::Bureaucrat(std::string _name, int _grade) : _name(_name) 
 {
-    this->_name = _name;
-    this->_grade = _grade;
-    std::cout << "the object with name" << this->_name << " and grade " << this->_grade << " is created" << std::endl;
+        if (_grade < 1)
+            throw GradeTooHighException();    
+        else if (_grade > 150)        
+            throw GradeTooLowException();   
+        this->_grade = _grade;
+        std::cout << "Bureaucrat " << _name << " created with grade " << _grade << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -114,7 +117,7 @@ void Bureaucrat::decreaseGrade(int sum)
     }
 }
 
-std::string Bureaucrat::getName()
+const std::string &Bureaucrat::getName() const
 {
     return this->_name;
 }

@@ -5,10 +5,10 @@ SRCS= src/main.cpp src/Bureaucrat.cpp src/Form.cpp
 OBJS = $(SRCS:.cpp=.o)
 INCLUDES= includes/Bureaucrat.hpp includes/Form.hpp
 
-all: $(NAME)
+all: $(NAME) 
 
-$(NAME): $(OBJS) $(INCLUDES)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) Makefile
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(NAME) is ready to execute."
 
 %.o: %.cpp

@@ -18,11 +18,11 @@ class Bureaucrat
         Bureaucrat &operator=(const Bureaucrat &rhs);
         Bureaucrat(std::string _name, int _grade);
         ~Bureaucrat();
-        std::string getName();
         void increaseGrade(int sum);
         void signForm(Form &Form);
         void decreaseGrade(int sum);
         int getGrade() const;
+        const std::string& getName() const;
 
         class	GradeTooHighException : public std::exception
 		{
