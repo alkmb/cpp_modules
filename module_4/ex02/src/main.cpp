@@ -6,39 +6,98 @@
 # include "../includes/WrongAnimal.hpp"
 # include "../includes/Brain.hpp"
 
-int main(void)
+int main()
 {
-    std::cout << "\nCreating a Dog and a Cat...\n" << std::endl;
+    std::cout << "CONSTRUCTOR TEST" << std::endl;
+    std::cout << std::endl;
+    std::cout << "==================================" << std::endl;
+
+    // SET OBJECTS
+    const Animal* original = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
+    std::cout << "==================================" << std::endl;
 
-    std::cout << "\nDeleting the Dog and the Cat...\n" << std::endl;
+    // GET THE TYPES
+    std::cout << "J Type: " << j->getType() << " " << std::endl;
+    std::cout << "I Type: " << i->getType() << " " << std::endl;
+    std::cout << "==================================" << std::endl;
+
+    // MAKE SOUNDS
+    std::cout << "SOUNDS TEST" << std::endl;
+    std::cout << std::endl;
+    std::cout << "==================================" << std::endl;
+    i->makeSound();
+    j->makeSound();
+    original->makeSound();
+    std::cout << "==================================" << std::endl;
+
+    // DESTRUCTOR TEST
+    std::cout << "DESTRUCTOR TEST" << std::endl;
+    std::cout << std::endl;
+    std::cout << "==================================" << std::endl;
+    delete original;
     delete j;
     delete i;
+    std::cout << "==================================" << std::endl;
 
-    std::cout << "\nCreating a basic Dog...\n" << std::endl;
+    // WRONG ANIMAL TESTING
+    std::cout << "WRONG ANIMAL TEST" << std::endl;
+    std::cout << std::endl;
+    std::cout << "==================================" << std::endl;
+
+    // SET OBJECTS
+    const WrongAnimal* wrong = new WrongAnimal();
+    const WrongAnimal* wrongCat = new WrongCat();
+    std::cout << "==================================" << std::endl;
+
+    // GET TYPES
+    std::cout << "WrongAnimal Type: " << wrong->getType() << " " << std::endl;
+    std::cout << "WrongCat Type: " << wrongCat->getType() << " " << std::endl;
+    std::cout << "==================================" << std::endl;
+
+    // MAKE SOUNDS
+    std::cout << "WRONG ANIMAL SOUNDS" << std::endl;
+    std::cout << std::endl;
+    std::cout << "==================================" << std::endl;
+    wrong->makeSound();
+    wrongCat->makeSound();
+    std::cout << "==================================" << std::endl;
+
+    // DESTRUCTOR TEST
+    std::cout << "WRONG ANIMAL DESTRUCTOR TEST" << std::endl;
+    std::cout << std::endl;
+    std::cout << "==================================" << std::endl;
+    delete wrong;
+    delete wrongCat;
+    std::cout << "==================================" << std::endl;
+
+    // TESTING DEEP COPY
+    std::cout << "DEEP COPY TEST" << std::endl;
+    std::cout << std::endl;
+    std::cout << "==================================" << std::endl;
     Dog basic;
     {
-        std::cout << "\nCreating a temporary Dog by copying the basic Dog...\n" << std::endl;
         Dog tmp = basic;
-        std::cout << "\nTemporary Dog goes out of scope...\n" << std::endl;
     }
+    std::cout << "==================================" << std::endl;
 
-    std::cout << "\nCreating an array of Animals (2 Dogs and 2 Cats)...\n" << std::endl;
+    // TESTING ARRAY OF ANIMALS (DOGS AND CATS)
+    std::cout << "CREATING ARRAY OF ANIMALS" << std::endl;
+    std::cout << std::endl;
+    std::cout << "==================================" << std::endl;
     const Animal* animals[4] = { new Dog(), new Dog(), new Cat(), new Cat() };
-    std::cout << "\nDeleting the array of Animals...\n" << std::endl;
+    std::cout << "==================================" << std::endl;
+
+    std::cout << "DELETING ARRAY OF ANIMALS" << std::endl;
+    std::cout << std::endl;
+    std::cout << "==================================" << std::endl;
     for (int i = 0; i < 4; i++) {
         delete animals[i];
     }
+    std::cout << "==================================" << std::endl;
 
-    // std::cout << "\nCreating a Dog and a Cat using AAnimal pointers...\n" << std::endl;
-    // const AAnimal* a_j = new Dog();
-    // const AAnimal* a_i = new Cat();
+    std::cout << "END OF MAIN FUNCTION" << std::endl;
 
-    // std::cout << "\nDeleting the Dog and the Cat using AAnimal pointers...\n" << std::endl;
-    // delete a_j;
-    // delete a_i;
-
-    std::cout << "\nEnd of main function.\n" << std::endl;
     return 0;
 }
