@@ -1,6 +1,6 @@
 # include "../includes/Cat.hpp"
 
-Cat::Cat( void ) : Animal("Cat") {
+Cat::Cat( void ) : AAnimal("Cat") {
     std::cout << this->_type << " constructor called" << std::endl;
     try {
         this->_brain = new Brain();
@@ -21,7 +21,7 @@ void    Cat::makeSound( void ) const
     std::cout << "Meow!" << std::endl;
 }
 
-Cat::Cat( const Cat& src ) : Animal( src )
+Cat::Cat( const Cat& src ) : AAnimal( src )
 {
     *this = src;
 }

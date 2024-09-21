@@ -1,6 +1,6 @@
 # include "../includes/Dog.hpp"
 
-Dog::Dog( void ) : Animal( "Dog" )
+Dog::Dog( void ) : AAnimal( "Dog" )
 {
     std::cout << this->_type << " constructor called" << std::endl;
     try {
@@ -22,7 +22,7 @@ void    Dog::makeSound( void ) const
     std::cout << "Woof!" << std::endl;
 }
 
-Dog::Dog( const Dog& src ) : Animal( src )
+Dog::Dog( const Dog& src ) : AAnimal( src )
 {
     *this = src;
 }
