@@ -3,7 +3,6 @@
 #define WRONGANIMAL_HPP
 
 #include <iostream>
-
 #include "Animal.hpp"
 
 class WrongAnimal
