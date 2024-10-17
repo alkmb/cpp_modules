@@ -24,7 +24,29 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
 Bureaucrat::Bureaucrat(std::string _name, int _grade)
 {
     this->_name = _name;
-    this->_grade = _grade;
+   try
+    {
+        this->_grade = _grade;
+        if (this->_grade > 150)
+        {
+            throw GradeTooLowException();
+        }
+        else if (this->_grade <= 0)
+        {
+            throw GradeTooHighException();
+        }
+        std::cout << this->_name << ": grade set to " << this->_grade << std::endl;
+    }
+    catch (const GradeTooHighException &e) 
+    {
+        this->_grade = 1;
+        std::cout << this->_name << ": Could not set desired grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
+    }
+    catch (const GradeTooLowException &e) 
+    {
+        this->_grade = 150;
+        std::cout << this->_name << ": Could not set desired grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
+    }
     std::cout << "the object with name" << this->_name << " and grade " << this->_grade << " is created" << std::endl;
 }
 
