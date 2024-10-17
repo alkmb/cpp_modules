@@ -2,7 +2,7 @@
 
 int main() 
 {
-    Bureaucrat Bureauacrat1("elmasloco", 50);
+    Bureaucrat Bureauacrat1("elmasloco", 180);
 
     // GET GRADE
     std::cout << std::endl << "Initial Grades: " << std::endl << std::endl;
