@@ -2,67 +2,79 @@
 
 int main() 
 {
-    Bureaucrat Bureauacrat1("elmasloco", 180);
+    Bureaucrat Bureauacrat1("elmasloco", 0);
+    //Bureaucrat Bureauacrat1("elmasloco", 151);
 
-    // GET GRADE
-    std::cout << std::endl << "Initial Grades: " << std::endl << std::endl;
-    std::cout << "Bureauacrat1: " << Bureauacrat1.getGrade() << std::endl << std::endl;
+    std::cout << "Bureauacrat1 grade is: " << Bureauacrat1.getGrade() << std::endl << std::endl;
 
     // PLAY WITH GRADE
-    Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 5; i++)
+            Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 3; i++)
+            Bureauacrat1.decreaseGrade();
+    std::cout << "Bureauacrat1 grade is: " << Bureauacrat1.getGrade() << std::endl;
 
     // Test default constructor
     Bureaucrat BureauacratDefault;
-    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl << std::endl;
+    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
 
-    BureauacratDefault.decreaseGrade();
-    BureauacratDefault.increaseGrade();
+    for (int i = 0; i < 5; i++)
+            Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 2; i++)
+            Bureauacrat1.decreaseGrade();
 
-    BureauacratDefault.increaseGrade();
-    BureauacratDefault.decreaseGrade();
-
-    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl << std::endl;
+    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
 
     // Test copy constructor
     Bureaucrat BureauacratCopy(BureauacratDefault);
-    std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl << std::endl;
+    std::cout << "\nCopy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
 
-    BureauacratCopy.increaseGrade();
-    BureauacratCopy.increaseGrade();
-    BureauacratCopy.decreaseGrade();
-    BureauacratCopy.decreaseGrade();
+    for (int i = 0; i < 2; i++)
+            Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 2; i++)
+            Bureauacrat1.decreaseGrade();
 
     std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
-    std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl << std::endl;
-
-    Form Form2("oleole", 90, 50);
-    std::cout << Form2.getName() << " creatd with grades: " << Form2.getExecGrade() 
-    << " | " << Form2.getSignGrade() << std::endl;
-    std::cout << "the form status is: " << Form2.getIsSigned() << std::endl;
-
-    BureauacratCopy.signForm(Form2);
-    BureauacratCopy.increaseGrade();
-    BureauacratCopy.signForm(Form2);
-
-    std::cout << "the form status is: " << Form2.getIsSigned() << std::endl;
-
+    std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
+    
+    // Test copy assigment operator.
     Bureaucrat BureauacratAssigned = Bureauacrat1;
-    std::cout << "Assigned Bureauacrat2 grade: " << BureauacratAssigned.getGrade() << std::endl << std::endl;
-// FORM TEST --------------------------------------------------------------------------------
-    Form Form1("Formuliarial", 60, 50);
-    std::cout << Form1.getName() << " creatd with grades: " << Form1.getExecGrade() 
-    << " | " << Form1.getSignGrade() << std::endl;
-    std::cout << "the form status is: " << Form1.getIsSigned() << std::endl;
+    std::cout << "Assigned Bureauacrat1 grade: " << BureauacratAssigned.getGrade() << std::endl;
+    std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl;
 
-    BureauacratAssigned.increaseGrade();
-    BureauacratAssigned.decreaseGrade();
 
-    BureauacratAssigned.signForm(Form1);
-
-    std::cout << "the form status is: " << Form1.getIsSigned() << std::endl;
+    for (int i = 0; i < 2; i++)
+            Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 12; i++)
+            Bureauacrat1.decreaseGrade();
 
     std::cout << "Assigned Bureauacrat1 grade: " << BureauacratAssigned.getGrade() << std::endl;
-    std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl << std::endl;
+    std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl;
+
+// FORM TEST --------------------------------------------------------------------------------
+    Form Form2("oleole", 90, 50); 
+
+    std::cout << Form2.getName() << " Creatd with grades: " << Form2.getExecGrade() 
+    << " | " << Form2.getSignGrade() << std::endl;
+
+    std::cout << "The form status is: " << Form2.getIsSigned() << std::endl;
+    std::cout << "\nCopy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
+
+    BureauacratCopy.signForm(Form2);
+    for (int i = 0; i < 60; i++)
+            BureauacratCopy.increaseGrade();
+    BureauacratCopy.signForm(Form2);
+
+    std::cout << "\nCopy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
+    std::cout << "The form status is: " << Form2.getIsSigned() << std::endl;
+
+// FORM COPY TEST --------------------------------------------------------------------------------
+
+    Form Form1(Form2);
+
+    std::cout << Form1.getName() << " Creatd with grades: " << Form1.getExecGrade() 
+    << " | " << Form1.getSignGrade() << std::endl;
+    std::cout << "The form status is: " << Form1.getIsSigned() << std::endl;
 
 
     return 0;

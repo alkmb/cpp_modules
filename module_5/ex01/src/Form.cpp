@@ -1,19 +1,16 @@
 #include "../includes/Form.hpp"
 
-Form::Form() 
-    : _name(""), _signGrade(0), _execGrade(0), _isSigned(false)
+Form::Form() : _name("default"), _signGrade(0), _execGrade(0), _isSigned(false)
 {
     std::cout << "Default Constructor called."<< std::endl;
 }
 
-Form::Form(const std::string name, const int signGrade, const int execGrade)
-    : _name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
+Form::Form(const std::string name, const int signGrade, const int execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
 {
     std::cout << "Constructor called."<< std::endl;
 }
 
-Form::Form(const Form &src)
-    : _name(src._name), _signGrade(src._signGrade), _execGrade(src._execGrade), _isSigned(src._isSigned) 
+Form::Form(const Form &src) : _name(src._name), _signGrade(src._signGrade), _execGrade(src._execGrade), _isSigned(src._isSigned) 
 {
     std::cout << "Copy constructor called."<< std::endl;
 }
