@@ -1,19 +1,15 @@
 #include "../includes/PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() 
+ : AForm("Presidential", 25, 5)
 {
-    this->_name = "default";
-    this->_signGrade = 25;
-    this ->_execGrade = 5;
     this->_isSigned = false;
     std::cout << "Default Constructor called."<< std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string name, const int signGrade, const int execGrade)
+ : AForm(name, signGrade, execGrade)
 {
-    this->_name = name;
-    this->_signGrade = signGrade;
-    this ->_execGrade = execGrade;
     this->_isSigned = false;
     if (this->_signGrade != 25)
         std::cout << "Be aware that if the Sign grade is not 25 you wont be able to sign the form." << std::endl;
@@ -23,21 +19,17 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string name, const int
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src)
+ : AForm(src._name, src._signGrade, src._execGrade)
 {
     *this = src;
-    std::cout << "Copy constructor called."<< std::endl;
+    std::cout << "Constructor called."<< std::endl;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs) 
 {
     std::cout << "Copy assignment constructor called."<< std::endl;
     if (this != &rhs)
-    {
         this-> _isSigned = rhs._isSigned;
-        this->_execGrade = rhs._execGrade;
-        this->_signGrade = rhs._signGrade;
-        this->_isSigned = rhs._isSigned;
-    }
     return *this;
 }
 
@@ -71,9 +63,9 @@ bool PresidentialPardonForm::beSigned(const Bureaucrat &Bureaucrat)
 {
     try
     {
-        if (Bureaucrat.getGrade() < 25)
+        if (Bureaucrat.getGrade() > 25)
             throw GradeTooLowException();
-        else if (Bureaucrat.getGrade() > 25)
+        else if (Bureaucrat.getGrade() < 25)
             throw GradeTooHighException();
         std::cout << "can be signed" << std::endl;
         this->_isSigned = true;

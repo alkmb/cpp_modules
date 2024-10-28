@@ -1,39 +1,43 @@
-#ifndef BUREUCRAT_HPP
-#define BUREUCRAT_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-class AForm;
 
-class Bureaucrat
-{
-    private:
-        std::string _name;
-        int _grade;
+class AForm; // Forward declaration of AForm
+
+class Bureaucrat {
+private:
+    std::string _name;
+    int _grade;
+
+public:
+    Bureaucrat();
+    Bureaucrat(const Bureaucrat &src);
+    Bureaucrat &operator=(const Bureaucrat &rhs);
+    Bureaucrat(std::string name, int grade);
+    ~Bureaucrat();
+
+    std::string getName() const;
+    void increaseGrade();
+    void signForm(AForm &form);
+    void decreaseGrade();
+    int getGrade() const;
+
+    class GradeTooHighException : public std::exception {
     public:
-        Bureaucrat();
-        Bureaucrat(const Bureaucrat &src);
-        Bureaucrat &operator=(const Bureaucrat &rhs);
-        Bureaucrat(std::string _name, int _grade);
-        ~Bureaucrat();
-        std::string getName();
-        void increaseGrade();
-        void signAForm(AForm &AForm);
-        void decreaseGrade();
-        int getGrade() const;
+        virtual const char *what() const throw();
+    };
 
-        class	GradeTooHighException : public std::exception
-		{
-			public:
-				virtual const char *what() const throw();	
-		};
-		class	GradeTooLowException : public std::exception
-		{
-			public:
-				virtual const char *what() const throw();
-		};
+    class GradeTooLowException : public std::exception {
+    public:
+        virtual const char *what() const throw();
+    };
 };
 
 #endif

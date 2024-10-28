@@ -1,19 +1,15 @@
 #include "../includes/RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() 
+: AForm("name", 72, 45)
 {
-    this->_name = "default";
-    this->_signGrade = 72;
-    this ->_execGrade = 45;
     this->_isSigned = false;
     std::cout << "Default Constructor called."<< std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string name, const int signGrade, const int execGrade)
+: AForm(name, signGrade, execGrade)
 {
-    this->_name = name;
-    this->_signGrade = signGrade;
-    this ->_execGrade = execGrade;
     this->_isSigned = false;
     if (this->_signGrade != 72)
         std::cout << "Be aware that if the Sign grade is not 72 you wont be able to sign the form." << std::endl;
@@ -23,6 +19,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string name, const int signG
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
+    : AForm(src._name, src._signGrade, src._execGrade)
 {
     *this = src;
     std::cout << "Copy constructor called."<< std::endl;
@@ -32,12 +29,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 {
     std::cout << "Copy assignment constructor called."<< std::endl;
     if (this != &rhs)
-    {
         this-> _isSigned = rhs._isSigned;
-        this->_execGrade = rhs._execGrade;
-        this->_signGrade = rhs._signGrade;
-        this->_isSigned = rhs._isSigned;
-    }
     return *this;
 }
 
@@ -71,9 +63,9 @@ bool RobotomyRequestForm::beSigned(const Bureaucrat &Bureaucrat)
 {
     try
     {
-        if (Bureaucrat.getGrade() < 72)
+        if (Bureaucrat.getGrade() > 72)
             throw GradeTooLowException();
-        else if (Bureaucrat.getGrade() > 72)
+        else if (Bureaucrat.getGrade() < 72)
             throw GradeTooHighException();
         std::cout << "can be signed" << std::endl;
         this->_isSigned = true;
@@ -98,12 +90,4 @@ const char* RobotomyRequestForm::GradeTooLowException::what() const throw()
 const char* RobotomyRequestForm::GradeTooHighException::what() const throw()
 {
     return "Grade too high";
-}
-
-std::ostream & operator<<( std::ostream & o, RobotomyRequestForm const & rhs )
-{
-    o << rhs.getExecGrade();
-    o << rhs.getSignGrade();
-    o << rhs.getIsSigned();
-    return o;
 }

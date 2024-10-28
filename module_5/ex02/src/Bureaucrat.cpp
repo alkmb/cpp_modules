@@ -48,7 +48,7 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw()
 	return "Is not possible to get lower grade than 150.";
 }
 
-void Bureaucrat::signAForm(AForm &AForm)
+void Bureaucrat::signForm(AForm &AForm)
 {
     if (AForm.beSigned(*this))
     {
@@ -114,7 +114,7 @@ void Bureaucrat::decreaseGrade()
     }
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
     return this->_name;
 }

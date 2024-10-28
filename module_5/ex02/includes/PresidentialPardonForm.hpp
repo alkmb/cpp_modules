@@ -7,13 +7,8 @@
 
 class Bureaucrat;
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public AForm
 {
-    private:
-        std::string _name;
-        int _signGrade;
-        int _execGrade;
-        bool _isSigned;
     public:
         PresidentialPardonForm();
         PresidentialPardonForm(const std::string name, const int signGrade, const int execGrade);
@@ -21,23 +16,21 @@ class PresidentialPardonForm
         PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
         virtual ~PresidentialPardonForm();
 
-        std::string getName() const;
+        virtual std::string getName() const;
         virtual int getSignGrade() const;
         virtual int getExecGrade() const;
         virtual bool getIsSigned() const;
-        
-        virtual bool beSigned(const Bureaucrat &Bureaucrat);
 
-        class GradeTooLowException : public std::exception
-        {
-            public:
-                virtual const char* what() const throw();
+        virtual bool beSigned(const Bureaucrat &bureaucrat);
+
+        class GradeTooHighException : public std::exception {
+        public:
+            virtual const char *what() const throw();
         };
 
-        class GradeTooHighException : public std::exception
-        {
-            public:
-                virtual const char* what() const throw();
+        class GradeTooLowException : public std::exception {
+        public:
+            virtual const char *what() const throw();
         };
 };
 
