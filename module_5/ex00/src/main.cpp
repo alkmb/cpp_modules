@@ -2,46 +2,54 @@
 
 int main() 
 {
-    Bureaucrat Bureauacrat1("elmasloco", 160);
+    Bureaucrat Bureauacrat1("elmasloco", 0);
+    //Bureaucrat Bureauacrat1("elmasloco", 151);
 
-    // GET GRADE
-    std::cout << std::endl << "Initial Grades: " << std::endl << std::endl;
-    std::cout << "Bureauacrat1: " << Bureauacrat1.getGrade() << std::endl << std::endl;
+    std::cout << "Bureauacrat1 grade is: " << Bureauacrat1.getGrade() << std::endl << std::endl;
 
     // PLAY WITH GRADE
-    Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 32; i++)
+            Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 33; i++)
+            Bureauacrat1.decreaseGrade();
+    std::cout << "Bureauacrat1 grade is: " << Bureauacrat1.getGrade() << std::endl;
 
     // Test default constructor
     Bureaucrat BureauacratDefault;
-    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl << std::endl;
+    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
 
-    BureauacratDefault.decreaseGrade();
-    BureauacratDefault.increaseGrade();
+    for (int i = 0; i < 5; i++)
+            Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 2; i++)
+            Bureauacrat1.decreaseGrade();
 
-    BureauacratDefault.increaseGrade();
-    BureauacratDefault.decreaseGrade();
-
-    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl << std::endl;
+    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
 
     // Test copy constructor
     Bureaucrat BureauacratCopy(BureauacratDefault);
-    std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl << std::endl;
+    std::cout << "\nCopy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
 
-    BureauacratCopy.increaseGrade();
-    BureauacratCopy.increaseGrade();
-    BureauacratCopy.decreaseGrade();
-    BureauacratCopy.decreaseGrade();
+    for (int i = 0; i < 2; i++)
+            Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 2; i++)
+            Bureauacrat1.decreaseGrade();
 
     std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
-    std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl << std::endl;
-
+    std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
+    
+    // Test copy assigment operator.
     Bureaucrat BureauacratAssigned = Bureauacrat1;
-    std::cout << "Assigned Bureauacrat2 grade: " << BureauacratAssigned.getGrade() << std::endl << std::endl;
+    std::cout << "Assigned Bureauacrat1 grade: " << BureauacratAssigned.getGrade() << std::endl;
+    std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl;
 
-    BureauacratAssigned.increaseGrade();
+
+    for (int i = 0; i < 30; i++)
+            Bureauacrat1.increaseGrade();
+    for (int i = 0; i < 12; i++)
+            Bureauacrat1.decreaseGrade();
 
     std::cout << "Assigned Bureauacrat1 grade: " << BureauacratAssigned.getGrade() << std::endl;
-    std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl << std::endl;
+    std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl;
 
     return 0;
 }

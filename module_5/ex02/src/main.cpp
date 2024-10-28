@@ -8,17 +8,17 @@ int main()
     std::cout << "Bureauacrat1: " << Bureauacrat1.getGrade() << std::endl << std::endl;
 
     // PLAY WITH GRADE
-    Bureauacrat1.increaseGrade(20);
+    Bureauacrat1.increaseGrade();
 
     // Test default constructor
     Bureaucrat BureauacratDefault;
     std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl << std::endl;
 
-    BureauacratDefault.decreaseGrade(1);
-    BureauacratDefault.increaseGrade(151);
+    BureauacratDefault.decreaseGrade();
+    BureauacratDefault.increaseGrade();
 
-    BureauacratDefault.increaseGrade(100);
-    BureauacratDefault.decreaseGrade(40);
+    BureauacratDefault.increaseGrade();
+    BureauacratDefault.decreaseGrade();
 
     std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl << std::endl;
 
@@ -26,15 +26,15 @@ int main()
     Bureaucrat BureauacratCopy(BureauacratDefault);
     std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl << std::endl;
 
-    BureauacratCopy.increaseGrade(89);
-    BureauacratCopy.increaseGrade(1);
-    BureauacratCopy.decreaseGrade(150);
-    BureauacratCopy.decreaseGrade(149);
+    BureauacratCopy.increaseGrade();
+    BureauacratCopy.increaseGrade();
+    BureauacratCopy.decreaseGrade();
+    BureauacratCopy.decreaseGrade();
 
     std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
     std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl << std::endl;
 
-    BureauacratCopy.increaseGrade(100);
+    BureauacratCopy.increaseGrade();
 
 
     Bureaucrat BureauacratAssigned = Bureauacrat1;
