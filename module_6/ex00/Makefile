@@ -1,11 +1,9 @@
-NAME= Mommy
+NAME= Converter
 CC= c++
 CFLAGS= -Wall -Wextra -Werror -std=c++98
-SRCS= src/main.cpp src/Bureaucrat.cpp src/AForm.cpp src/ShrubberyCreationForm.cpp \
-src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp src/Intern.cpp
+SRCS= src/main.cpp src/ScalarConverter.cpp 
 OBJS = $(SRCS:.cpp=.o)
-INCLUDES= includes/Bureaucrat.hpp includes/AForm.hpp includes/ShrubberyCreationForm.hpp \
-includes/PresidentialPardonForm.hpp includes/RobotomyRequestForm.hpp includes/Intern.hpp
+INCLUDES= includes/ScalarConverter.hpp
 
 all: $(NAME)
 
