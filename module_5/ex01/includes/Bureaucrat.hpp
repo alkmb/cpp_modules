@@ -18,9 +18,9 @@ class Bureaucrat
         Bureaucrat &operator=(const Bureaucrat &rhs);
         Bureaucrat(std::string _name, int _grade);
         ~Bureaucrat();
-        void increaseGrade(int sum);
+        void increaseGrade();
         void signForm(Form &Form);
-        void decreaseGrade(int sum);
+        void decreaseGrade();
         int getGrade() const;
         const std::string& getName() const;
 

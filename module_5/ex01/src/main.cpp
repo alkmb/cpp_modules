@@ -9,17 +9,17 @@ int main()
     std::cout << "Bureauacrat1: " << Bureauacrat1.getGrade() << std::endl << std::endl;
 
     // PLAY WITH GRADE
-    Bureauacrat1.increaseGrade(20);
+    Bureauacrat1.increaseGrade();
 
     // Test default constructor
     Bureaucrat BureauacratDefault;
     std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl << std::endl;
 
-    BureauacratDefault.decreaseGrade(1);
-    BureauacratDefault.increaseGrade(151);
+    BureauacratDefault.decreaseGrade();
+    BureauacratDefault.increaseGrade();
 
-    BureauacratDefault.increaseGrade(100);
-    BureauacratDefault.decreaseGrade(40);
+    BureauacratDefault.increaseGrade();
+    BureauacratDefault.decreaseGrade();
 
     std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl << std::endl;
 
@@ -27,10 +27,10 @@ int main()
     Bureaucrat BureauacratCopy(BureauacratDefault);
     std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl << std::endl;
 
-    BureauacratCopy.increaseGrade(89);
-    BureauacratCopy.increaseGrade(1);
-    BureauacratCopy.decreaseGrade(150);
-    BureauacratCopy.decreaseGrade(149);
+    BureauacratCopy.increaseGrade();
+    BureauacratCopy.increaseGrade();
+    BureauacratCopy.decreaseGrade();
+    BureauacratCopy.decreaseGrade();
 
     std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
     std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl << std::endl;
@@ -41,7 +41,7 @@ int main()
     std::cout << "the form status is: " << Form2.getIsSigned() << std::endl;
 
     BureauacratCopy.signForm(Form2);
-    BureauacratCopy.increaseGrade(100);
+    BureauacratCopy.increaseGrade();
     BureauacratCopy.signForm(Form2);
 
     std::cout << "the form status is: " << Form2.getIsSigned() << std::endl;
@@ -54,8 +54,8 @@ int main()
     << " | " << Form1.getSignGrade() << std::endl;
     std::cout << "the form status is: " << Form1.getIsSigned() << std::endl;
 
-    BureauacratAssigned.increaseGrade(29);
-    BureauacratAssigned.decreaseGrade(59);
+    BureauacratAssigned.increaseGrade();
+    BureauacratAssigned.decreaseGrade();
 
     BureauacratAssigned.signForm(Form1);
 

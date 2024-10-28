@@ -1,15 +1,18 @@
 #include "../includes/AForm.hpp"
 
 AForm::AForm() 
-    : _name(""), _signGrade(0), _execGrade(0), _isSigned(false)
 {
-    std::cout << "Default Constructor called."<< std::endl;
-}
+    this->_name = "default";
+    this->_signGrade = 0;
+    this->_execGrade = 0;
+    this->_isSigned = false;}
 
-AForm::AForm(const std::string name, const int signGrade, const int execGrade)
-    : _name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
+AForm::AForm(std::string name, int signGrade, int execGrade)
 {
-    std::cout << "Constructor called."<< std::endl;
+    this->_name = name;
+    this->_signGrade = signGrade;
+    this->_execGrade = execGrade;
+    this->_isSigned = false;
 }
 
 AForm::AForm(const AForm &src)

@@ -10,23 +10,23 @@ class Bureaucrat;
 class AForm
 {
     private:
-        const std::string _name;
-        const int _signGrade;
-        const int _execGrade;
+        std::string _name;
+        int _signGrade;
+        int _execGrade;
         bool _isSigned;
-        AForm();
     public:
+        AForm();
         AForm(const std::string name, const int signGrade, const int execGrade);
         AForm(const AForm &src);
         AForm &operator=(const AForm &rhs);
         virtual ~AForm();
 
         std::string getName() const;
-        int getSignGrade() const;
-        int getExecGrade() const;
-        bool getIsSigned() const;
+        virtual int getSignGrade() const = 0;
+        virtual int getExecGrade() const = 0;
+        virtual bool getIsSigned() const = 0;
         
-        bool beSigned(const Bureaucrat &Bureaucrat);
+        virtual bool beSigned(const Bureaucrat &Bureaucrat);
 
         class GradeTooLowException : public std::exception
         {

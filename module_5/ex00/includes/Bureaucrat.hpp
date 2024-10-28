@@ -16,8 +16,8 @@ class Bureaucrat
         Bureaucrat(std::string _name, int _grade);
         ~Bureaucrat();
         std::string getName();
-        void increaseGrade(int sum);
-        void decreaseGrade(int sum);
+        void increaseGrade();
+        void decreaseGrade();
         int getGrade() const;
 
         class	GradeTooHighException : public std::exception

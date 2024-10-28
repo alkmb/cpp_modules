@@ -70,11 +70,11 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw()
 	return "Is not possible to get lower grade than 150.";
 }
 
-void Bureaucrat::increaseGrade(int sum)
+void Bureaucrat::increaseGrade()
 {
     try
     {
-        this->_grade -= sum;
+        this->_grade -= 1;
         if (this->_grade > 150)
         {
             throw GradeTooLowException();
@@ -83,25 +83,25 @@ void Bureaucrat::increaseGrade(int sum)
         {
             throw GradeTooHighException();
         }
-        std::cout << this->_name << ": grade updated to " << this->_grade << " by adding " << sum << std::endl;
+        std::cout << this->_name << ": grade updated to " << this->_grade << " by adding " << 1 << std::endl;
     }
     catch (const GradeTooHighException &e) 
     {
-        this->_grade += sum;
+        this->_grade += 1;
         std::cout << this->_name << ": Could not increase the grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
     }
     catch (const GradeTooLowException &e) 
     {
-        this->_grade += sum;
+        this->_grade += 1;
         std::cout << this->_name << ": Could not increase the grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
     }
 }
 
-void Bureaucrat::decreaseGrade(int sum)
+void Bureaucrat::decreaseGrade()
 {
     try
     {
-        this->_grade += sum;
+        this->_grade += 1;
         if (this->_grade > 150)
         {
             throw GradeTooLowException();
@@ -110,16 +110,16 @@ void Bureaucrat::decreaseGrade(int sum)
         {
             throw GradeTooHighException();
         }
-        std::cout << this->_name << ": grade updated to " << this->_grade << " by subtracting " << sum << std::endl;
+        std::cout << this->_name << ": grade updated to " << this->_grade << " by subtracting " << 1 << std::endl;
     }
     catch (const GradeTooHighException &e) 
     {
-        this->_grade -= sum;
+        this->_grade -= 1;
         std::cout << this->_name << ": Could not decrease the grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
     }
     catch (const GradeTooLowException &e) 
     {
-        this->_grade -= sum;
+        this->_grade -= 1;
         std::cout << this->_name << ": Could not decrease the grade. " << e.what() << " The current grade is " << this->_grade << std::endl;
     }
 }

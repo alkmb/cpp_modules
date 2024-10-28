@@ -1,20 +1,30 @@
 #include "../includes/RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() 
-    : _name(""), _signGrade(0), _execGrade(0), _isSigned(false)
 {
+    this->_name = "default";
+    this->_signGrade = 72;
+    this ->_execGrade = 45;
+    this->_isSigned = false;
     std::cout << "Default Constructor called."<< std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string name, const int signGrade, const int execGrade)
-    : _name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
 {
+    this->_name = name;
+    this->_signGrade = signGrade;
+    this ->_execGrade = execGrade;
+    this->_isSigned = false;
+    if (this->_signGrade != 72)
+        std::cout << "Be aware that if the Sign grade is not 72 you wont be able to sign the form." << std::endl;
+    if (this->_execGrade != 45)
+        std::cout << "Be aware that if the Exec grade is not 45 you wont be able to use the form." << std::endl; 
     std::cout << "Constructor called."<< std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
-    : _name(src._name), _signGrade(src._signGrade), _execGrade(src._execGrade), _isSigned(src._isSigned) 
 {
+    *this = src;
     std::cout << "Copy constructor called."<< std::endl;
 }
 
@@ -22,7 +32,12 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 {
     std::cout << "Copy assignment constructor called."<< std::endl;
     if (this != &rhs)
+    {
         this-> _isSigned = rhs._isSigned;
+        this->_execGrade = rhs._execGrade;
+        this->_signGrade = rhs._signGrade;
+        this->_isSigned = rhs._isSigned;
+    }
     return *this;
 }
 
@@ -56,9 +71,9 @@ bool RobotomyRequestForm::beSigned(const Bureaucrat &Bureaucrat)
 {
     try
     {
-        if (Bureaucrat.getGrade() > this->_signGrade)
+        if (Bureaucrat.getGrade() < 72)
             throw GradeTooLowException();
-        else if (Bureaucrat.getGrade() < this->_signGrade)
+        else if (Bureaucrat.getGrade() > 72)
             throw GradeTooHighException();
         std::cout << "can be signed" << std::endl;
         this->_isSigned = true;

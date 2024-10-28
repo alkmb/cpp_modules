@@ -17,7 +17,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
 {
     this -> _name = rhs._name;
     this -> _grade = rhs._grade;
-    std::cout << "Called copy assigment operatorr function for " << this->_name << std::endl;
+    std::cout << "Called copy assigment operator function for " << this->_name << std::endl;
     return *this;
 }
 

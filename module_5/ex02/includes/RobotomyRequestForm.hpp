@@ -10,23 +10,23 @@ class Bureaucrat;
 class RobotomyRequestForm
 {
     private:
-        const std::string _name;
-        const int _signGrade;
-        const int _execGrade;
+        std::string _name;
+        int _signGrade;
+        int _execGrade;
         bool _isSigned;
-        RobotomyRequestForm();
     public:
+        RobotomyRequestForm();
         RobotomyRequestForm(const std::string name, const int signGrade, const int execGrade);
         RobotomyRequestForm(const RobotomyRequestForm &src);
         RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
         virtual ~RobotomyRequestForm();
 
         std::string getName() const;
-        int getSignGrade() const;
-        int getExecGrade() const;
-        bool getIsSigned() const;
+        virtual int getSignGrade() const;
+        virtual int getExecGrade() const;
+        virtual bool getIsSigned() const;
         
-        bool beSigned(const Bureaucrat &Bureaucrat);
+        virtual bool beSigned(const Bureaucrat &Bureaucrat) ;
 
         class GradeTooLowException : public std::exception
         {
