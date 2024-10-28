@@ -1,15 +1,19 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
 
-class AForm; // Forward declaration of AForm
+class AForm;
 
 class Bureaucrat {
 private:
@@ -26,6 +30,7 @@ public:
     std::string getName() const;
     void increaseGrade();
     void signForm(AForm &form);
+    void executeForm(const AForm &form);
     void decreaseGrade();
     int getGrade() const;
 

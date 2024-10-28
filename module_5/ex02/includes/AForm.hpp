@@ -4,10 +4,10 @@
 #include <iostream>
 #include <string>
 
-class Bureaucrat; // Forward declaration of Bureaucrat
+class Bureaucrat;
 
 class AForm {
-protected:
+private:
     const std::string _name;
     const int _signGrade;
     const int _execGrade;
@@ -20,12 +20,13 @@ public:
     AForm &operator=(const AForm &rhs);
     virtual ~AForm();
 
-    virtual std::string getName() const = 0;
-    virtual int getSignGrade() const = 0;
-    virtual int getExecGrade() const = 0;
-    virtual bool getIsSigned() const = 0;
+    virtual std::string getName() const;
+    virtual int getSignGrade() const;
+    virtual int getExecGrade() const;
+    virtual bool getIsSigned() const;
 
-    virtual bool beSigned(const Bureaucrat &bureaucrat) = 0;
+    virtual bool beSigned(const Bureaucrat &bureaucrat);
+    virtual void execute(const Bureaucrat &executor) const  = 0;
 
     class GradeTooLowException : public std::exception {
     public:
@@ -38,4 +39,4 @@ public:
     };
 };
 
-#endif
+#endif  

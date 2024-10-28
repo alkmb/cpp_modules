@@ -2,61 +2,59 @@
 
 int main() 
 {
-    Bureaucrat Bureauacrat1("elmasloco", 0);
-    //Bureaucrat Bureauacrat1("elmasloco", 151);
+    // Bureaucrat Bureauacrat1("elmasloco", 0);
+    // //Bureaucrat Bureauacrat1("elmasloco", 151);
 
-    std::cout << "Bureauacrat1 grade is: " << Bureauacrat1.getGrade() << std::endl << std::endl;
+    // std::cout << "Bureauacrat1 grade is: " << Bureauacrat1.getGrade() << std::endl << std::endl;
 
-    // PLAY WITH GRADE
-    for (int i = 0; i < 5; i++)
-            Bureauacrat1.increaseGrade();
-    for (int i = 0; i < 3; i++)
-            Bureauacrat1.decreaseGrade();
-    std::cout << "Bureauacrat1 grade is: " << Bureauacrat1.getGrade() << std::endl;
+    // // PLAY WITH GRADE
+    // for (int i = 0; i < 5; i++)
+    //         Bureauacrat1.increaseGrade();
+    // for (int i = 0; i < 3; i++)
+    //         Bureauacrat1.decreaseGrade();
+    // std::cout << "Bureauacrat1 grade is: " << Bureauacrat1.getGrade() << std::endl;
 
-    // Test default constructor
-    Bureaucrat BureauacratDefault;
-    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
+    // // Test default constructor
+    // Bureaucrat BureauacratDefault;
+    // std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
 
-    for (int i = 0; i < 5; i++)
-            Bureauacrat1.increaseGrade();
-    for (int i = 0; i < 2; i++)
-            Bureauacrat1.decreaseGrade();
+    // for (int i = 0; i < 5; i++)
+    //         Bureauacrat1.increaseGrade();
+    // for (int i = 0; i < 2; i++)
+    //         Bureauacrat1.decreaseGrade();
 
-    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
+    // std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
 
-    // Test copy constructor
-    Bureaucrat BureauacratCopy(BureauacratDefault);
-    std::cout << "\nCopy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
+    // // Test copy constructor
+    // Bureaucrat BureauacratCopy(BureauacratDefault);
+    // std::cout << "\nCopy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
 
-    for (int i = 0; i < 2; i++)
-            Bureauacrat1.increaseGrade();
-    for (int i = 0; i < 2; i++)
-            Bureauacrat1.decreaseGrade();
+    // for (int i = 0; i < 2; i++)
+    //         Bureauacrat1.increaseGrade();
+    // for (int i = 0; i < 2; i++)
+    //         Bureauacrat1.decreaseGrade();
 
-    std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
-    std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
+    // std::cout << "Default Bureaucrat grade: " << BureauacratDefault.getGrade() << std::endl;
+    // std::cout << "Copy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
     
-    // Test copy assigment operator.
-    Bureaucrat BureauacratAssigned = Bureauacrat1;
-    std::cout << "Assigned Bureauacrat1 grade: " << BureauacratAssigned.getGrade() << std::endl;
-    std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl;
+    // // Test copy assigment operator.
+    // Bureaucrat BureauacratAssigned = Bureauacrat1;
+    // std::cout << "Assigned Bureauacrat1 grade: " << BureauacratAssigned.getGrade() << std::endl;
+    // std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl;
 
 
-    for (int i = 0; i < 2; i++)
-            Bureauacrat1.increaseGrade();
-    for (int i = 0; i < 12; i++)
-            Bureauacrat1.decreaseGrade();
+    // for (int i = 0; i < 2; i++)
+    //         Bureauacrat1.increaseGrade();
+    // for (int i = 0; i < 12; i++)
+    //         Bureauacrat1.decreaseGrade();
 
-    std::cout << "Assigned Bureauacrat1 grade: " << BureauacratAssigned.getGrade() << std::endl;
-    std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl;
+    // std::cout << "Assigned Bureauacrat1 grade: " << BureauacratAssigned.getGrade() << std::endl;
+    // std::cout << "Bureauacrat1 grade: " << Bureauacrat1.getGrade() << std::endl;
 
 
-// FORM Shrubbery TEST --------------------------------------------------------------------------------
+// FORM Shrubbery Sign TEST --------------------------------------------------------------------------------
 
-    ShrubberyCreationForm form1("Shrubbery", 145, 137);
-    // ShrubberyCreationForm form1("Shrubbery", 143, 133);
-
+    ShrubberyCreationForm form1("Shrubbery");
 
     Bureaucrat bureaucrat1("John Doe", 140);
 
@@ -74,10 +72,23 @@ int main()
     bureaucrat1.signForm(form1);
     std::cout << "The form status is: " << form1.getIsSigned() << std::endl ;
 
+// FORM Shrubbery Exec TEST --------------------------------------------------------------------------------
+    bureaucrat1.executeForm(form1);
+
+    std::cout << "bureaucrat1 grade: " << bureaucrat1.getGrade() << std::endl;
+
+    for (int i = 0; i < 8; i++)
+        bureaucrat1.increaseGrade();
+
+    bureaucrat1.executeForm(form1);
+
+    std::cout << "bureaucrat1 grade: " << bureaucrat1.getGrade() << std::endl;
+
+
+
 // FORM Presidential TEST --------------------------------------------------------------------------------
 
-    PresidentialPardonForm form2("Presidential", 25, 5);
-    // PresidentialPardonForm form2("Presidential", 49, 12);
+    PresidentialPardonForm form2("Presidential");
 
     Bureaucrat bureaucrat2("Marc Doe", 20);
 
@@ -95,10 +106,23 @@ int main()
     bureaucrat2.signForm(form2);
     std::cout << "The form status is: " << form2.getIsSigned() << std::endl << std::endl;
 
+// FORM Presidential Exec TEST --------------------------------------------------------------------------------
+    bureaucrat2.executeForm(form2);
+
+    std::cout << "bureaucrat1 grade: " << bureaucrat2.getGrade() << std::endl;
+
+    for (int i = 0; i < 20; i++)
+        bureaucrat2.increaseGrade();
+
+    bureaucrat2.executeForm(form2);
+
+    std::cout << "bureaucrat1 grade: " << bureaucrat2.getGrade() << std::endl;
+
+
+
 // FORM Robotomy TEST --------------------------------------------------------------------------------
 
-    RobotomyRequestForm form3("Robotomy", 72, 45);
-    // RobotomyRequestForm form3("Robotomy", 42, 41);
+    RobotomyRequestForm form3("Robotomy");
 
     Bureaucrat bureaucrat3("John Doe", 40);
 
@@ -115,6 +139,20 @@ int main()
 
     bureaucrat3.signForm(form3);
     std::cout << "The form status is: " << form3.getIsSigned() << std::endl << std::endl;
+
+// FORM Robotomy Exec TEST --------------------------------------------------------------------------------
+    bureaucrat3.executeForm(form3);
+
+    std::cout << "bureaucrat1 grade: " << bureaucrat3.getGrade() << std::endl;
+
+    for (int i = 0; i < 37; i++)
+        bureaucrat3.increaseGrade();
+
+    bureaucrat3.executeForm(form3);
+
+    std::cout << "bureaucrat1 grade: " << bureaucrat3.getGrade() << std::endl;
+
+
 
 
     return 0;

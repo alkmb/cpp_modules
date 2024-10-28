@@ -1,27 +1,23 @@
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
-#include <iostream>
-#include <string>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class PresidentialPardonForm : public AForm
+class PresidentialPardonForm : public AForm 
 {
-    public:
+    private:
+        std::string _target;
         PresidentialPardonForm();
-        PresidentialPardonForm(const std::string name, const int signGrade, const int execGrade);
+
+    public:
+        PresidentialPardonForm(const std::string &target);
         PresidentialPardonForm(const PresidentialPardonForm &src);
-        PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
+       PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
         virtual ~PresidentialPardonForm();
 
-        virtual std::string getName() const;
-        virtual int getSignGrade() const;
-        virtual int getExecGrade() const;
-        virtual bool getIsSigned() const;
-
-        virtual bool beSigned(const Bureaucrat &bureaucrat);
+        virtual void execute(const Bureaucrat &executor) const;
 
         class GradeTooHighException : public std::exception {
         public:

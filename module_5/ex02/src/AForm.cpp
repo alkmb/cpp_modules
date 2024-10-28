@@ -60,6 +60,28 @@ bool AForm::beSigned(const Bureaucrat &bureaucrat) {
     return false;
 }
 
+void AForm::execute(const Bureaucrat &executor) const
+{
+    try 
+    {
+        if (executor.getGrade() > this->_execGrade)
+            throw GradeTooHighException();
+        else if (executor.getGrade() > this->_execGrade)
+            throw GradeTooLowException();
+        std::cout << "Can be Executed." << std::endl;
+        return;
+    }
+    catch (const GradeTooHighException &e)
+    {
+
+    }
+    catch (const GradeTooLowException &e)
+    {
+
+    }
+    return ;
+}
+
 const char *AForm::GradeTooLowException::what() const throw() {
     return "Grade too low";
 }

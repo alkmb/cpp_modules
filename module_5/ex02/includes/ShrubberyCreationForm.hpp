@@ -1,27 +1,23 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
-#include <iostream>
-#include <string>
-#include "AForm.hpp" // Ensure AForm is included
+#include "AForm.hpp"
 
-class Bureaucrat; // Forward declaration of Bureaucrat
+class Bureaucrat;
 
 class ShrubberyCreationForm : public AForm 
 {
-    public:
+    private:
+        std::string _target;
         ShrubberyCreationForm();
-        ShrubberyCreationForm(const std::string &name, int signGrade, int execGrade);
+
+    public:
+        ShrubberyCreationForm(const std::string &target);
         ShrubberyCreationForm(const ShrubberyCreationForm &src);
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
         virtual ~ShrubberyCreationForm();
 
-        virtual std::string getName() const;
-        virtual int getSignGrade() const;
-        virtual int getExecGrade() const;
-        virtual bool getIsSigned() const;
-
-        virtual bool beSigned(const Bureaucrat &bureaucrat);
+        virtual void execute(const Bureaucrat &executor) const;
 
         class GradeTooHighException : public std::exception {
         public:

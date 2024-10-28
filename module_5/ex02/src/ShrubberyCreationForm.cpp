@@ -1,34 +1,29 @@
-#include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/Bureaucrat.hpp"
+
 
 ShrubberyCreationForm::ShrubberyCreationForm()
     : AForm("Shrubbery", 145, 137)
 {
-    this->_isSigned = false;
     std::cout << "Default Constructor called." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &name, int signGrade, int execGrade)
-    : AForm(name, signGrade, execGrade)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
+    : AForm("Shrubbery", 145, 137)
 {
-    this->_isSigned = false;
-    if (this->_signGrade != 145)
-        std::cout << "Be aware that if the Sign grade is not 72 you won't be able to sign the form." << std::endl;
-    if (this->_execGrade != 137)
-        std::cout << "Be aware that if the Exec grade is not 45 you won't be able to use the form." << std::endl;
+    this->_target = target;
     std::cout << "Constructor called." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src)
-    : AForm(src._name, src._signGrade, src._execGrade)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) 
+: AForm(src)
 {
-    *this = src;
     std::cout << "Copy constructor called." << std::endl;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs) {
     if (this != &rhs) {
-        this->_isSigned = rhs._isSigned;
+        AForm::operator=(rhs);
+        this->_target = rhs._target;
     }
     std::cout << "Copy assignment operator called." << std::endl;
     return *this;
@@ -38,37 +33,55 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
     std::cout << "Destructor called." << std::endl;
 }
 
-std::string ShrubberyCreationForm::getName() const {
-    return this->_name;
-}
-
-int ShrubberyCreationForm::getSignGrade() const {
-    return this->_signGrade;
-}
-
-int ShrubberyCreationForm::getExecGrade() const {
-    return this->_execGrade;
-}
-
-bool ShrubberyCreationForm::getIsSigned() const {
-    return this->_isSigned;
-}
-
-bool ShrubberyCreationForm::beSigned(const Bureaucrat &bureaucrat) {
-    try {
-        if (bureaucrat.getGrade() > this->_signGrade)
-            throw GradeTooLowException();
-        else if (bureaucrat.getGrade() < this->_signGrade)
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+{
+    try 
+    {
+        if (executor.getGrade() > 137)
             throw GradeTooHighException();
-        std::cout << "can be signed" << std::endl;
-        this->_isSigned = true;
-        return true;
-    } catch (const GradeTooHighException &e) {
-        std::cout << this->_name << ": Could not sign the ShrubberyCreationForm. " << e.what() << std::endl;
-    } catch (const GradeTooLowException &e) {
-        std::cout << this->_name << ": Could not sign the ShrubberyCreationForm. " << e.what() << std::endl;
+        else if (executor.getGrade() > 137)
+            throw GradeTooLowException();
+        else if (!this->getIsSigned())
+            return;
+
+        std::ofstream file(( this->getName() + "_shrubbery" ).c_str());
+        file << "                      ___" << std::endl;
+        file << "                _,-'\"\"   \"\"\"\"`--." << std::endl;
+        file << "             ,-'          __,,-- \\" << std::endl;
+        file << "           ,\'    __,--\"\"\"\"dF      )" << std::endl;
+        file << "          /   .-\"Hb_,--\"\"dF      /" << std::endl;
+        file << "        ,\'       _Hb ___dF\"-._,-'" << std::endl;
+        file << "      ,'      _,-\"\"\"\"   \"\"--..__" << std::endl;
+        file << "     (     ,-'                  `." << std::endl;
+        file << "      `._,'     _   _             ;" << std::endl;
+        file << "       ,'     ,' `-'Hb-.___..._,-'" << std::endl;
+        file << "       \\    ,'\"Hb.-\'HH`-.dHF\"" << std::endl;
+        file << "        `--\'   \"Hb  HH  dF\"" << std::endl;
+        file << "                \"Hb HH dF" << std::endl;
+        file << "                 \"HbHHdF" << std::endl;
+        file << "                  |HHHF" << std::endl;
+        file << "                  |HHH|" << std::endl;
+        file << "                  |HHH|" << std::endl;
+        file << "                  |HHH|" << std::endl;
+        file << "                  |HHH|" << std::endl;
+        file << "                  dHHHb" << std::endl;
+        file << "                .dFd|bHb.               o" << std::endl;
+        file << "      o       .dHFdH|HbTHb.          o /" << std::endl;
+        file << "\\  Y  |  \\__,dHHFdHH|HHhoHHb.__       Y" << std::endl;
+        file << "##########################################" << std::endl;
+        file.close();
+
+        return;
     }
-    return false;
+    catch (const GradeTooHighException &e)
+    {
+        std::cout << "Grade to high to execute" << std::endl;
+    }
+    catch (const GradeTooLowException &e)
+    {
+        std::cout << "Grade to low to execute" << std::endl;
+    }
+    return ;
 }
 
 const char *ShrubberyCreationForm::GradeTooLowException::what() const throw() {
