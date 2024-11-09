@@ -1,29 +1,25 @@
 # include "../includes/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
 {
-    this->_name = "default";
-    this->_grade = 150;
     std::cout << "the object with name" << this->_name << " and grade " << this->_grade << " is created" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src)
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade)
 {
-    *this = src;
     std::cout << "Copy constructor called for " << this -> _name << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
 {
-    this -> _name = rhs._name;
-    this -> _grade = rhs._grade;
+    if (this != &rhs)
+      this -> _grade = rhs._grade;
     std::cout << "Called copy assigment operatorr function for " << this->_name << std::endl;
     return *this;
 }
 
-Bureaucrat::Bureaucrat(std::string _name, int _grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-    this->_name = _name;
    try
     {
         this->_grade = _grade;
