@@ -11,15 +11,16 @@ class notFound : public std::exception
 };
 
 template <typename T>
-int& easyfind( T* container, int needle)
+int easyfind( T& container, int needle)
 {
   int contLen = sizeof(container) / sizeof(container[0]);
 
-  for (int i = 0; i < contLen; i++)
+  for (int i = 0; i < contLen; i+=1)
   {
+      std::cout << "Current index: " << container[i] << " And needle: " << needle << std::endl;
       if (needle == container[i])
       {
-        std::cout << "The needle: " << needle << "in the postion: " << i << std::endl;
+        std::cout << "The needle: " << needle << " in the postion: " << i << std::endl;
         return container[i];
       }
   }

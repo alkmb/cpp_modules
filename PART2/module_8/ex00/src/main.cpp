@@ -4,7 +4,7 @@
 int main(void)
 {
   int container[] = { 2, 4, 5, 1, 3, 7};
-  int needle = 5;
+  int needle = 7;
 
   try 
   {
