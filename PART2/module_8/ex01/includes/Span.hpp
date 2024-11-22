@@ -1,23 +1,28 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
+#include <list>
 #include <iostream>
+#include <algorithm>
+#include <exception>
 
 class Span {
 
   private:
-    const int std::vector<unsigned int> _integer;
-  
-  public:
+    std::list <int> _list;
+    unsigned int    _n;
+
     Span();
-    Span(unsigned int integer);
-    Span(const Span &src);
-    Span& operator=(const Span &rhs);
+
+  public:
+    Span( unsigned int n );
+    Span( const Span &src );
+    Span& operator=( const Span &rhs );
     ~Span();
 
-    addNumber(unsigned int sum);
-    shortestSpan();
-    longestSpan();
+    void addNumber(unsigned int n);
+    unsigned int shortestSpan() const;
+    unsigned int longestSpan() const;
 
 };
 
