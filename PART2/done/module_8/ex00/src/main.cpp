@@ -10,7 +10,7 @@ int main(void)
   {
     easyfind(container, needle);
   }
-  catch (const notFound &e)
+  catch (const NotFound &e)
   {
     std::cout << e.what() << std::endl;
   }

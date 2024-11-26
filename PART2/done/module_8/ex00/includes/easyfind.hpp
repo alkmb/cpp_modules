@@ -1,7 +1,7 @@
 #include <iostream>
 #include <exception>
 
-class notFound : public std::exception
+class NotFound : public std::exception
 {
   public:
     virtual const char* what() const throw()
@@ -24,5 +24,5 @@ int easyfind( T& container, int needle)
         return container[i];
       }
   }
-  throw notFound();  
+  throw NotFound();  
 };
