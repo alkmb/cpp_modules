@@ -47,7 +47,9 @@ unsigned int Span::shortestSpan() const
 
   if (_list.size() > _n)
     throw std::out_of_range("empty list");
+  
   unsigned int min = Span::longestSpan();
+  
   for (std::list<int>::const_iterator it = _list.begin(); it != _list.end(); ++it)
   {
     for (std::list<int>::const_iterator iter = _list.begin(); iter != _list.end(); ++iter)
@@ -65,7 +67,8 @@ unsigned int Span::longestSpan() const
 {
   if (_list.size() > _n)
     throw std::out_of_range("empty list");
-    return ( *std::max_element( _list.begin(), _list.end() ) - *std::min_element( _list.begin(), _list.end() ) );
+  return ( *std::max_element( _list.begin(), _list.end() ) - \
+      *std::min_element( _list.begin(), _list.end() ) );
 
 }
 

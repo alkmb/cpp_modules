@@ -7,9 +7,11 @@ OBJS=$(SRCS:.cpp=.o)
 INCLUDES= includes/Span.hpp
 
 all: $(NAME)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
