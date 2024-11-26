@@ -13,8 +13,8 @@ $(NAME): $(OBJS) $(INCLUDES)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "compiled"
 
-%.o: $.cpp
-	$(CC) $(CFLAGS) -c $< -p $@
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "cleaning objects..."

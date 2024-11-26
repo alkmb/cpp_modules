@@ -15,7 +15,7 @@ const T& min( const T& a, const T& b )
 template< class T >
 void swap(  T& a,  T& b )
 {
-    T temp = std::move(a);
-    a = std::move(b);
-    b = std::move(temp);
+    T temp = a;
+    a = b;
+    b = temp;
 }
