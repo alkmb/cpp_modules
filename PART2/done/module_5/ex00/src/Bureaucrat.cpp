@@ -81,7 +81,7 @@ void Bureaucrat::increaseGrade()
         }
         std::cout << this->_name << ": grade updated to " << this->_grade << " by adding " << 1 << std::endl;
     }
-    catch (const GradeTooHighException &e) 
+    catch (const GradeTooHighException &e)
     {
         this->_grade += 1;
         std::cout << this->_name << ": Could not increase the grade. " << e.what() << " The current grade is " << this->_grade << std::endl;

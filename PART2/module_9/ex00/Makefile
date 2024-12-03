@@ -1,11 +1,11 @@
-NAME= BtcExchange
+NAME= btc
 CC= c++
 CFLAGS= -Wall -Wextra -Werror -std=c++98
 
-SRCS= src/main.cpp  src/BitconExchange.cpp
-INCLUDES= includes/BitconExchange.hpp
+SRCS= src/main.cpp  src/BitcoinExchange.cpp
+INCLUDES= includes/BitcoinExchange.hpp
 
-OBJS= $(SRCS: .cpp=.o)
+OBJS= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
