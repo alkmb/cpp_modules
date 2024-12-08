@@ -11,7 +11,7 @@ class Array
 
   public:
     
-    Array() : _arr( new T() ), _size(0) {};
+    Array() : _arr( new T[0]), _size(0) {};
     Array(unsigned int n) : _arr( new T[n] ), _size(n) {};
     
     Array(const Array &src) : _arr( new T[src._size] ), _size(src._size) 
@@ -60,11 +60,11 @@ class Array
       return _size;
     };
 
-    friend std::ostream& operator<<( std::ostream& out, const Array<T>& arr)
-    {
-      for (unsigned int i(0); i < arr._size; i++)
-        out << arr[i] << " ";
-      return out;
-    };
 };
 
+std::ostream& operator<<( std::ostream& out, const Array<T>& arr)
+{
+    for (unsigned int i(0); i < arr._size; i++)
+      out << arr[i] << " ";
+    return out;
+};
