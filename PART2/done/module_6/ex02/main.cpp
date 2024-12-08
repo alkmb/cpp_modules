@@ -88,9 +88,9 @@ int main (void)
     std::cout << "The class &B is: ";
     identify(*b);
 
-    std::cout << "The class A is: ";
+    std::cout << "The class C is: ";
     identify(c);
-    std::cout << "The class &A is: ";
+    std::cout << "The class &C is: ";
     identify(*c);
 
     delete a;
