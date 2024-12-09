@@ -1,18 +1,21 @@
 #include "../includes/easyfind.hpp"
 #include <iostream>
-
-int main(void)
+#include <vector>
+int main()
 {
-  int container[] = { 2, 4, 5, 1, 3, 7};
-  int needle = 7;
+    // Declare a vector of integers
+    std::vector <int > vect;
 
-  try 
-  {
-    easyfind(container, needle);
-  }
-  catch (const NotFound &e)
-  {
-    std::cout << e.what() << std::endl;
-  }
-  return 0;
+    vect.push_back(1);
+    vect.push_back(7);
+    vect.push_back(2);
+    vect.push_back(4);
+    vect.push_back(19);
+    vect.push_back(12);
+    vect.push_back(31);
+
+
+    easyfind(vect, 99);
+
+    return 0;
 }
