@@ -82,7 +82,7 @@ int main(int argc, char **argv)
                 std::cerr << "Error: not a positive number." << std::endl;
                 continue;
             }
-            if (value >= std::numeric_limits<int>::max())
+            if (value >= 1000)
             {
                 std::cerr << "Error: value is too large." << std::endl;
                 continue;
