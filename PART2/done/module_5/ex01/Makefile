@@ -1,4 +1,4 @@
-NAME= Faggot
+NAME= NotFaggot
 CC= c++
 CFLAGS= -Wall -Wextra -Werror -std=c++98
 SRCS= src/main.cpp src/Bureaucrat.cpp src/Form.cpp
