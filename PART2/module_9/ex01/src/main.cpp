@@ -31,13 +31,15 @@ int main (int argc, char *argv[])
 		return 0;
 	}
 	equation = argv[1];
-	try {
+	try
+	{
 		for (size_t i = 0; i < equation.size(); ++i)
 		{
 			if (equation[i] == ADD || equation[i] == SUB || equation[i] == DIV || equation[i] == MUL)
 			{
 				int_storage.calculate((Operation)equation[i]);
-			} else if (equation[i] != ' ') {
+			}
+			else if (equation[i] != ' ') {
 				int_storage.add(equation[i]);
 			}
 		}

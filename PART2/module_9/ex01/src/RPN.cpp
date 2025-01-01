@@ -25,7 +25,8 @@ RPN::~RPN()
 
 void RPN::calculate(Operation oper)
 {
-	if (this->size() < 2) {
+	if (this->size() < 2)
+	{
 		throw std::logic_error("Error");
 	}
 	int v1;
@@ -37,8 +38,10 @@ void RPN::calculate(Operation oper)
 	this->pop();
 	v1 = this->top();
 	this->pop();
-	for (int i = 0; i < 5; ++i) {
-		if (operations[i] == oper) {
+	for (int i = 0; i < 5; ++i)
+	{
+		if (operations[i] == oper)
+		{
 			(this->*(operation[i]))(v1, v2);
 			break ;
 		}

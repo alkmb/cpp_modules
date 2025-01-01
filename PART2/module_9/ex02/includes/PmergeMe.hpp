@@ -6,6 +6,10 @@
 #include <iostream>
 #include <sstream>
 #include <ostream>
+#include <ctime>
+#include <time.h>
+#include <typeinfo>
+
 
 template <typename Container>
 
@@ -19,38 +23,70 @@ bool findDuplicate(const Container &nums, int newValue)
 	return false;
 }
 
-template <typename Container>
-
-void mergeSort(Container &nums)
+template<typename Container>
+typename Container::iterator insertSort(Container& container, typename Container::value_type value)
 {
-	if (nums.size() <= 1)
-		return;
-	Container left(nums.begin(), nums.begin() + nums.size() / 2);
-	Container right(nums.begin() + nums.size() /2, nums.end());
-
-	mergeSort(left);
-	mergeSort(right);
-
-	typename Container::iterator leftIterator = left.begin();
-	typename Container::iterator rightIterator = right.begin();
-	typename Container::iterator numsIterator = nums.begin();
-
-	while(leftIterator != left.end() && rightIterator != right.end())
+    typename Container::iterator it;
+    
+    // Check if container is vector using template specialization
+    if (typeid(container) == typeid(std::vector<int>))
 	{
-		if (*leftIterator < *rightIterator)
-			*numsIterator++ = *leftIterator++;
+        // For vector: use binary search
+        it = std::lower_bound(container.begin(), container.end(), value);
+        return container.insert(it, value);
+    }
+	else
+	{
+        // For list: use linear search
+        for (it = container.begin(); it != container.end(); ++it) 
+		{
+            if (*it > value) 
+                return container.insert(it, value);
+        }
+        return container.insert(it, value);
+    }
+}
+
+template <typename Container>
+void fordJohnsonSort(Container& container)
+{
+    if (container.size() <= 1)
+        return;
+
+    typedef typename Container::value_type ValueType;
+    typedef typename Container::iterator Iterator;
+
+    // Step 1: Create sorted pairs
+    std::vector<std::pair<ValueType, ValueType> > pairs;
+    Iterator it = container.begin();
+    
+    while (it != container.end())
+	{
+        ValueType first = *it++;
+        if (it != container.end())
+		{
+            ValueType second = *it++;
+            pairs.push_back(first > second ? std::make_pair(first, second) : std::make_pair(second, first));
+        } 
 		else
-			*numsIterator++ = *rightIterator++;
-	}
-
-	while (leftIterator != left.end())
+            pairs.push_back(std::make_pair(first, first));
+    }
+    // Step 2: Sort larger elements
+    Container mainChain;
+    for (size_t i = 0; i < pairs.size(); ++i)
 	{
-		*numsIterator++ = *leftIterator++;
-	}
-	while (rightIterator != right.end())
+        insertSort(mainChain, pairs[i].first);
+    }
+    // Step 3: Insert smaller elements using binary insertion
+    container.clear();
+    container = mainChain;
+    for (size_t i = 0; i < pairs.size(); ++i) 
 	{
-		*numsIterator = *rightIterator++;
-	}
+		if (pairs[i].first != pairs[i].second)
+		{
+            insertSort(container, pairs[i].second);
+        }
+    }
 }
 
 template <typename Container>

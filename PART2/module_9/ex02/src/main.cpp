@@ -1,8 +1,5 @@
 #include "../includes/PmergeMe.hpp"
 
-#include <ctime>
-#include <time.h>
-
 int main(int argc, const char *argv[])
 {
 	std::vector<int> vector_container;
@@ -27,21 +24,22 @@ int main(int argc, const char *argv[])
 	}
 
 	std::cout << "Before: " << vector_container << std::endl;
-	mergeSort(vector_container);
+	fordJohnsonSort(vector_container);
 	std::cout << "After: " << vector_container << std::endl;
 
 	start = std::clock();
 	vector_container = buildContainer<std::vector<int> >(&argv[1]);
-	mergeSort(vector_container);
+	fordJohnsonSort(vector_container);
 	finish = std::clock();
+	
 	std::cout << "Time to process a range of 5 elements with std::vector<int>: "
 		<< (float)(finish - start)/CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
 
-	/*list contaner sort*/
 	start = std::clock();
 	list_container = buildContainer<std::list<int> >(&argv[1]);
-	mergeSort(vector_container);
+	fordJohnsonSort(list_container);
 	finish = std::clock();
+
 	std::cout << "Time to process a range of 5 elements with std::list<int>: "
 		<< (float)(finish - start)/CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
 }
