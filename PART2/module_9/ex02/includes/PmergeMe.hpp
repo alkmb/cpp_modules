@@ -10,19 +10,6 @@
 #include <time.h>
 #include <typeinfo>
 
-
-template <typename Container>
-
-bool findDuplicate(const Container &nums, int newValue)
-{
-	for (typename Container::const_iterator iterator = nums.begin(); iterator != nums.end(); ++iterator)
-	{
-		if (*iterator == newValue)
-			return true;
-	}
-	return false;
-}
-
 template<typename Container>
 typename Container::iterator insertSort(Container& container, typename Container::value_type value)
 {
@@ -101,8 +88,6 @@ Container buildContainer(const char **args)
 		ss >> entry;
 		if (ss.fail())
 			throw 42;
-		if (findDuplicate(container, entry) || entry < 0)
-			throw 41;
 		container.push_back(entry);
 	}
 	return container;
