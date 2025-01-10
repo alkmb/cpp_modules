@@ -61,7 +61,7 @@ int main()
     std::cout << "\nCopy of Default grade: " << BureauacratCopy.getGrade() << std::endl;
 
     BureauacratCopy.signForm(Form2);
-    for (int i = 0; i < 60; i++)
+    for (int i = 0; i < 68; i++)
             BureauacratCopy.increaseGrade();
     BureauacratCopy.signForm(Form2);
 

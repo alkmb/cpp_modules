@@ -39,8 +39,6 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
     try 
     {
         if (executor.getGrade() > 45)
-            throw GradeTooHighException();
-        else if (executor.getGrade() > 45)
             throw GradeTooLowException();
         else if (!this->getIsSigned())
             return;

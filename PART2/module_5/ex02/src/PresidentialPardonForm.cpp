@@ -39,8 +39,6 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const
     try 
     {
         if (executor.getGrade() > 5)
-            throw GradeTooHighException();
-        else if (executor.getGrade() > 5)
             throw GradeTooLowException();
         else if (!this->getIsSigned())
             return;
