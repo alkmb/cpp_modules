@@ -1,6 +1,6 @@
 NAME=array
 CC=c++
-CFLAGS= -Wall -Wextra -Werror -std=c++98
+CFLAGS= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 SRCS= src/main.cpp
 INCLUDES= includes/Array.hpp
 OBJS= $(SRCS:.cpp=.o)
