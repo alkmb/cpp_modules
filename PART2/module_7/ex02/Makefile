@@ -6,6 +6,7 @@ INCLUDES= includes/Array.hpp
 OBJS= $(SRCS:.cpp=.o)
 RM= rm -rf
 
+
 all: $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES)
@@ -15,9 +16,9 @@ $(NAME): $(OBJS) $(INCLUDES)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	rm -rf $(OBJS)
 
-fclean:
-	$(RM) $(NAME)
+fclean: clean
+	rm -rf $(NAME)
 
 re: fclean all
